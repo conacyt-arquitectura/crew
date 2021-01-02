@@ -1,0 +1,10 @@
+version: '2'
+services:
+  crew-mongodb:
+    extends:
+      file: mongodb.yml
+      service: crew-mongodb
+  keycloak:
+    extends:
+      file: keycloak.yml
+      service: keycloak
