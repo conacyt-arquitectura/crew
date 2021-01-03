@@ -50,7 +50,7 @@ entity Avatar {
     mouthType String,
     skinColor String,
     topType String,
-    topColor String,
+    topColor String
 }
 
 entity Rol {
