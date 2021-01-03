@@ -1,0 +1,81 @@
+{
+  "name": "Avatar",
+  "fields": [
+    {
+      "fieldName": "isCircle",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "avatarStyle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "circleColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accessoriesType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clotheType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clotheColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eyebrowType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eyeType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facialHairColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facialHairType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "graphicType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hairColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mouthType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "skinColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "topType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "topColor",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210103004849",
+  "entityTableName": "avatar",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

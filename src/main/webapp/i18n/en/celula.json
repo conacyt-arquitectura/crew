@@ -1,0 +1,23 @@
+{
+  "crewApp": {
+    "celula": {
+      "home": {
+        "title": "Celulas",
+        "createLabel": "Create a new Celula",
+        "createOrEditLabel": "Create or edit a Celula",
+        "notFound": "No Celulas found"
+      },
+      "created": "A new Celula is created with identifier {{ param }}",
+      "updated": "A Celula is updated with identifier {{ param }}",
+      "deleted": "A Celula is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Celula {{ id }}?"
+      },
+      "detail": {
+        "title": "Celula"
+      },
+      "nombre": "Nombre",
+      "logo": "Logo"
+    }
+  }
+}

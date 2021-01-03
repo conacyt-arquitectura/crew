@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "proyecto": "Proyecto",
+        "celula": "Celula",
+        "participacion": "Participacion",
+        "area": "Area",
+        "persona": "Persona",
+        "badge": "Badge",
+        "avatar": "Avatar",
+        "rol": "Rol",
+        "plataforma": "Plataforma",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

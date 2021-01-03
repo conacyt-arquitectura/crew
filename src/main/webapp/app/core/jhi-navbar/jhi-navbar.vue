@@ -32,6 +32,42 @@
                         <font-awesome-icon icon="th-list" />
                         <span v-text="$t('global.menu.entities.main')">Entities</span>
                     </span>
+                    <b-dropdown-item to="/proyecto">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.proyecto')">Proyecto</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/celula">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.celula')">Celula</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/participacion">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.participacion')">Participacion</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/area">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.area')">Area</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/persona">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.persona')">Persona</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/badge">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.badge')">Badge</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/avatar">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.avatar')">Avatar</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/rol">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.rol')">Rol</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/plataforma">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.plataforma')">Plataforma</span>
+                    </b-dropdown-item>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown

@@ -1,0 +1,24 @@
+{
+  "crewApp": {
+    "badge": {
+      "home": {
+        "title": "Badges",
+        "createLabel": "Crear nuevo Badge",
+        "createOrEditLabel": "Crear o editar Badge",
+        "notFound": "Ningún Badges encontrado"
+      },
+      "created": "Un nuevo Badge ha sido creado con el identificador {{ param }}",
+      "updated": "Un Badge ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Badge ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Badge {{ id }}?"
+      },
+      "detail": {
+        "title": "Badge"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "logo": "Logo"
+    }
+  }
+}

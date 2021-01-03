@@ -26,6 +26,17 @@ import ConfigurationService from '@/admin/configuration/configuration.service';
 
 /* tslint:disable */
 
+import ProyectoService from '@/entities/proyecto/proyecto.service';
+import CelulaService from '@/entities/celula/celula.service';
+import ParticipacionService from '@/entities/participacion/participacion.service';
+import AreaService from '@/entities/area/area.service';
+import PersonaService from '@/entities/persona/persona.service';
+import BadgeService from '@/entities/badge/badge.service';
+import AvatarService from '@/entities/avatar/avatar.service';
+import RolService from '@/entities/rol/rol.service';
+import PlataformaService from '@/entities/plataforma/plataforma.service';
+import VueLoadImage from 'vue-load-image';
+
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -38,6 +49,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
 Vue.component('infinite-loading', InfiniteLoading);
+Vue.component('vue-load-image', VueLoadImage);
 
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);
@@ -85,6 +97,15 @@ new Vue({
     metricsService: () => new MetricsService(),
     alertService: () => alertService,
     translationService: () => translationService,
+    proyectoService: () => new ProyectoService(),
+    celulaService: () => new CelulaService(),
+    participacionService: () => new ParticipacionService(),
+    areaService: () => new AreaService(),
+    personaService: () => new PersonaService(),
+    badgeService: () => new BadgeService(),
+    avatarService: () => new AvatarService(),
+    rolService: () => new RolService(),
+    plataformaService: () => new PlataformaService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

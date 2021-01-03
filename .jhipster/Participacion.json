@@ -1,0 +1,31 @@
+{
+  "name": "Participacion",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "participacion",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rol",
+      "otherEntityRelationshipName": "participacion",
+      "relationshipName": "rol",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210103004449",
+  "entityTableName": "participacion",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

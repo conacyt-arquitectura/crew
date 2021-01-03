@@ -1,0 +1,23 @@
+{
+  "crewApp": {
+    "participacion": {
+      "home": {
+        "title": "Participacions",
+        "createLabel": "Crear nuevo Participacion",
+        "createOrEditLabel": "Crear o editar Participacion",
+        "notFound": "Ningún Participacions encontrado"
+      },
+      "created": "Un nuevo Participacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Participacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Participacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Participacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Participacion"
+      },
+      "persona": "Persona",
+      "rol": "Rol"
+    }
+  }
+}

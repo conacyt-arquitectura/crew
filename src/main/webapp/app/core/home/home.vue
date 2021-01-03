@@ -1,7 +1,11 @@
 <template>
     <div class="home row">
         <div class="col-md-3">
-            <span class="hipster img-fluid rounded"></span>
+            <vue-load-image>
+                <img slot="image" class="img-fluid rounded" :src="avatarUrl" alt="robo">
+                <img slot="preloader" class="img-fluid rounded" src="/content/images/loader.gif"/>
+                <div slot="error">error message</div>
+            </vue-load-image>
         </div>
         <div class="col-md-9">
             <h1 class="display-4" v-text="$t('home.title')">Welcome, Java Hipster!</h1>
