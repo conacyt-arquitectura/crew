@@ -1,0 +1,92 @@
+entity Proyecto {
+ nombre String,
+ clave String,
+ logo ImageBlob
+}
+
+entity Celula {
+	nombre String,
+    logo ImageBlob
+}
+
+entity Participacion {
+
+
+}
+entity Area {
+	nombre String required,
+    responsable String,
+    correo String
+}
+
+entity Persona {
+    nombre String required,
+	primerApellido String,
+	segundoApellido String,
+	correo String,
+    resumen TextBlob,
+    imagen ImageBlob
+}
+
+entity Badge {
+	nombre String required,
+    descripcion TextBlob required,
+    logo ImageBlob
+}
+
+entity Avatar {
+    isCircle Boolean,
+    avatarStyle String,
+    circleColor String,
+    accessoriesType String,
+    clotheType String,
+    clotheColor String,
+    eyebrowType String,
+    eyeType String,
+    facialHairColor String,
+    facialHairType String,
+    graphicType String,
+    hairColor String,
+    mouthType String,
+    skinColor String,
+    topType String,
+    topColor String,
+}
+
+entity Rol {
+	nombre String,
+    clave String,
+    logo ImageBlob
+}
+
+entity Plataforma {
+    nombre String,
+    color String,
+    logo ImageBlob
+}
+
+relationship ManyToOne {
+	Proyecto{celula} to Celula,
+    Proyecto{plataforma} to Plataforma,
+    Proyecto{area} to Area,
+    Persona{avatar} to Avatar,
+    Persona{area} to Area,
+    Persona{badges} to Badge,
+	Area{area} to Area,
+    Participacion{persona} to Persona,
+    Participacion{rol} to Rol
+}
+
+
+// Set pagination options
+paginate Persona, Proyecto, Badge with infinite-scroll
+paginate Rol, Celula, Plataforma, Area, Participacion with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Rol, Celula, Plataforma, Area, Badge, Avatar
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
