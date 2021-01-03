@@ -25,6 +25,7 @@
     "vue-property-decorator": "8.4.2",
     "vue-router": "3.2.0",
     "vue2-filters": "0.11.0",
+    "vuejs-avataaars": "^4.0.1",
     "vuelidate": "0.7.5",
     "vuex": "3.4.0"
   },

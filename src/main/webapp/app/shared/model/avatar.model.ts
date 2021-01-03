@@ -39,5 +39,19 @@ export class Avatar implements IAvatar {
     public topColor?: string
   ) {
     this.isCircle = this.isCircle || false;
+    this.circleColor = this.circleColor || '#6fb8e0';
+    this.accessoriesType = this.accessoriesType || "Blank";
+    this.clotheType = this.clotheType || "ShirtCrewNeck";
+    this.clotheColor = this.clotheColor || "Black";
+    this.eyebrowType = this.eyebrowType || "Default";
+    this.eyeType = this.eyeType || "Default";
+    this.facialHairColor = this.facialHairColor || "Brown";
+    this.facialHairType = this.facialHairType || "Blank";
+    this.graphicType = this.graphicType || "Skull";
+    this.hairColor = this.hairColor || "BrownDark";
+    this.mouthType = this.mouthType || "Default";
+    this.skinColor = this.skinColor || "Pale";
+    this.topType = this.topType || "NoHair";
+    this.topColor = this.topColor || "Blue03";
   }
 }

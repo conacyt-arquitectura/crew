@@ -36,7 +36,7 @@ import AvatarService from '@/entities/avatar/avatar.service';
 import RolService from '@/entities/rol/rol.service';
 import PlataformaService from '@/entities/plataforma/plataforma.service';
 import VueLoadImage from 'vue-load-image';
-
+import Avataaars from 'vuejs-avataaars'
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -50,6 +50,7 @@ Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
 Vue.component('infinite-loading', InfiniteLoading);
 Vue.component('vue-load-image', VueLoadImage);
+Vue.component('avataaars', Avataaars);
 
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);

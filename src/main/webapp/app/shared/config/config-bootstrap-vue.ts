@@ -24,6 +24,11 @@ import {
   BFormDatepicker,
   BInputGroup,
   BInputGroupPrepend,
+  BAvatar,
+  BFormRadioGroup,
+  BFormRadio,
+  BTabs,
+  BTab
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -53,4 +58,9 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-datepicker', BFormDatepicker);
   vue.component('b-input-group', BInputGroup);
   vue.component('b-input-group-prepend', BInputGroupPrepend);
+  vue.component('b-avatar', BAvatar);
+  vue.component('b-form-radio-group', BFormRadioGroup);
+  vue.component('b-form-radio', BFormRadio);
+  vue.component('b-tabs', BTabs);
+  vue.component('b-tab', BTab);
 }

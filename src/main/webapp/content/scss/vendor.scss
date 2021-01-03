@@ -11,3 +11,8 @@ eg $input-color: red;
 @import '~bootstrap-vue/src/index.scss';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
+
+.avatar-float {
+  position: fixed;
+  left: 0;
+}

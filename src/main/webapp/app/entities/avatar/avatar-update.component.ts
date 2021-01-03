@@ -5,6 +5,7 @@ import { numeric, required, minLength, maxLength, minValue, maxValue } from 'vue
 import AlertService from '@/shared/alert/alert.service';
 import { IAvatar, Avatar } from '@/shared/model/avatar.model';
 import AvatarService from './avatar.service';
+import { AvatarCatalog } from '@/util/avatar.catalog';
 
 const validations: any = {
   avatar: {
@@ -36,6 +37,9 @@ export default class AvatarUpdate extends Vue {
   public avatar: IAvatar = new Avatar();
   public isSaving = false;
   public currentLanguage = '';
+
+  public catalog = AvatarCatalog;
+  public isAvatarRobot = false;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -90,5 +94,5 @@ export default class AvatarUpdate extends Vue {
     this.$router.go(-1);
   }
 
-  public initRelationships(): void {}
+  public initRelationships(): void { }
 }

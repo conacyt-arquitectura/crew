@@ -40,3 +40,23 @@ $body-bg: #e4e5e6;
 // Font, line-height, and color for body text, headings, and more.
 
 $font-size-base: 1rem;
+
+// Para el avatar
+
+$theme-colors: (
+  'negro': #17202a,
+  'azul-pastel': #aed6f1,
+  'azul-claro': #5dade2,
+  'azul-fuerte': #3498db,
+  'azul-rey': #21618c,
+  'gris-claro': #abb2b9,
+  'gris-fuerte': #5d6d7e,
+  'gris-oxford': #34495e,
+  'verde-pastel': #76d7c4,
+  'naranja-pastel': #fad7a0,
+  'rojo-pastel': #edbb99,
+  'amarillo-pastel': #fcf3cf,
+  'rosa': #f1948a,
+  'rojo': #c0392b,
+  'blanco': #ffff,
+);

@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="jh-navbar">
         <b-navbar-brand class="logo" b-link to="/">
-            <span class="logo-img"></span>
+            <b-avatar size="sm" text="C" variant="success"></b-avatar>
             <span v-text="$t('global.title')" class="navbar-title">crew</span> <span class="navbar-version">{{version}}</span>
         </b-navbar-brand>      
         <b-navbar-toggle 

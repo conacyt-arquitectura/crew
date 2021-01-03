@@ -16,12 +16,12 @@
       "detail": {
         "title": "Avatar"
       },
-      "isCircle": "Is Circle",
+      "isCircle": "Fondo",
       "avatarStyle": "Avatar Style",
-      "circleColor": "Circle Color",
-      "accessoriesType": "Accessories Type",
-      "clotheType": "Clothe Type",
-      "clotheColor": "Clothe Color",
+      "circleColor": "Color del fondo",
+      "accessoriesType": "Lentes",
+      "clotheType": "Tipo de ropa",
+      "clotheColor": "Color de ropa",
       "eyebrowType": "Eyebrow Type",
       "eyeType": "Eye Type",
       "facialHairColor": "Facial Hair Color",

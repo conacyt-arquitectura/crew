@@ -2,8 +2,8 @@
     <div class="home row">
         <div class="col-md-3">
             <vue-load-image>
-                <img slot="image" class="img-fluid rounded" :src="avatarUrl" alt="robo">
-                <img slot="preloader" class="img-fluid rounded" src="/content/images/loader.gif"/>
+                <img slot="image" class="rounded img-fluid rounded" :src="avatarUrl" alt="robo">
+                <img slot="preloader" class="mx-auto d-block img-fluid rounded" src="/content/images/loader.gif"/>
                 <div slot="error">error message</div>
             </vue-load-image>
         </div>
