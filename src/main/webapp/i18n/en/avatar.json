@@ -17,6 +17,7 @@
         "title": "Avatar"
       },
       "isCircle": "Show Circle",
+      "isHuman": "Is human?",
       "avatarStyle": "Avatar Style",
       "circleColor": "Circle Color",
       "accessoriesType": "Accessories Type",

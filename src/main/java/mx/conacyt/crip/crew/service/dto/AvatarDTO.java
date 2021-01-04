@@ -6,10 +6,11 @@ import java.io.Serializable;
  * A DTO for the {@link mx.conacyt.crip.crew.domain.Avatar} entity.
  */
 public class AvatarDTO implements Serializable {
-    
     private String id;
 
-    private Boolean isCircle;
+    private Boolean circle;
+
+    private Boolean human;
 
     private String avatarStyle;
 
@@ -41,7 +42,6 @@ public class AvatarDTO implements Serializable {
 
     private String topColor;
 
-    
     public String getId() {
         return id;
     }
@@ -50,12 +50,20 @@ public class AvatarDTO implements Serializable {
         this.id = id;
     }
 
-    public Boolean isIsCircle() {
-        return isCircle;
+    public Boolean isCircle() {
+        return circle;
     }
 
-    public void setIsCircle(Boolean isCircle) {
-        this.isCircle = isCircle;
+    public void setCircle(Boolean circle) {
+        this.circle = circle;
+    }
+
+    public Boolean isHuman() {
+        return human;
+    }
+
+    public void setHuman(Boolean human) {
+        this.human = human;
     }
 
     public String getAvatarStyle() {
@@ -200,7 +208,8 @@ public class AvatarDTO implements Serializable {
     public String toString() {
         return "AvatarDTO{" +
             "id=" + getId() +
-            ", isCircle='" + isIsCircle() + "'" +
+            ", cirle='" + isCircle() + "'" +
+            ", human='" + isHuman() + "'" +
             ", avatarStyle='" + getAvatarStyle() + "'" +
             ", circleColor='" + getCircleColor() + "'" +
             ", accessoriesType='" + getAccessoriesType() + "'" +

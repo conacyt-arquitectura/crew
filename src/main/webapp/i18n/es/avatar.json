@@ -4,7 +4,7 @@
       "home": {
         "title": "Avatars",
         "createLabel": "Crear nuevo Avatar",
-        "createOrEditLabel": "Crear o editar Avatar",
+        "createOrEditLabel": "Configuración de avatar",
         "notFound": "Ningún Avatars encontrado"
       },
       "created": "Un nuevo Avatar ha sido creado con el identificador {{ param }}",
@@ -17,6 +17,7 @@
         "title": "Avatar"
       },
       "isCircle": "Fondo",
+      "isHuman": "Es humano?",
       "avatarStyle": "Avatar Style",
       "circleColor": "Color del fondo",
       "accessoriesType": "Lentes",

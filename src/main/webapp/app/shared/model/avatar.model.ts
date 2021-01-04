@@ -21,7 +21,7 @@ export interface IAvatar {
 export class Avatar implements IAvatar {
   constructor(
     public id?: string,
-    public isCircle?: boolean,
+    public circle?: boolean,
     public avatarStyle?: string,
     public circleColor?: string,
     public accessoriesType?: string,
@@ -36,9 +36,11 @@ export class Avatar implements IAvatar {
     public mouthType?: string,
     public skinColor?: string,
     public topType?: string,
-    public topColor?: string
+    public topColor?: string,
+    public human?: boolean
   ) {
-    this.isCircle = this.isCircle || false;
+    this.circle = this.circle || false;
+    this.human = this.human || true;
     this.circleColor = this.circleColor || '#6fb8e0';
     this.accessoriesType = this.accessoriesType || "Blank";
     this.clotheType = this.clotheType || "ShirtCrewNeck";

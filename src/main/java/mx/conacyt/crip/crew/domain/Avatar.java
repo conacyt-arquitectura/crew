@@ -1,24 +1,25 @@
 package mx.conacyt.crip.crew.domain;
 
+import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.io.Serializable;
 
 /**
  * A Avatar.
  */
 @Document(collection = "avatar")
 public class Avatar implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
 
-    @Field("is_circle")
-    private Boolean isCircle;
+    @Field("circle")
+    private Boolean circle;
+
+    @Field("human")
+    private Boolean human;
 
     @Field("avatar_style")
     private String avatarStyle;
@@ -74,17 +75,30 @@ public class Avatar implements Serializable {
         this.id = id;
     }
 
-    public Boolean isIsCircle() {
-        return isCircle;
+    public Boolean isCircle() {
+        return circle;
     }
 
-    public Avatar isCircle(Boolean isCircle) {
-        this.isCircle = isCircle;
+    public Avatar isCircle(Boolean circle) {
+        this.circle = circle;
         return this;
     }
 
-    public void setIsCircle(Boolean isCircle) {
-        this.isCircle = isCircle;
+    public void setCircle(Boolean circle) {
+        this.circle = circle;
+    }
+
+    public Boolean isHuman() {
+        return human;
+    }
+
+    public Avatar isHuman(Boolean human) {
+        this.human = human;
+        return this;
+    }
+
+    public void setHuman(Boolean human) {
+        this.human = human;
     }
 
     public String getAvatarStyle() {
@@ -281,6 +295,7 @@ public class Avatar implements Serializable {
     public void setTopColor(String topColor) {
         this.topColor = topColor;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -304,7 +319,8 @@ public class Avatar implements Serializable {
     public String toString() {
         return "Avatar{" +
             "id=" + getId() +
-            ", isCircle='" + isIsCircle() + "'" +
+            ", isCircle='" + isCircle() + "'" +
+            ", isHuman='" + isHuman() + "'" +
             ", avatarStyle='" + getAvatarStyle() + "'" +
             ", circleColor='" + getCircleColor() + "'" +
             ", accessoriesType='" + getAccessoriesType() + "'" +

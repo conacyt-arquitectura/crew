@@ -9,7 +9,7 @@ import { AvatarCatalog } from '@/util/avatar.catalog';
 
 const validations: any = {
   avatar: {
-    isCircle: {},
+    circle: {},
     avatarStyle: {},
     circleColor: {},
     accessoriesType: {},
@@ -39,7 +39,7 @@ export default class AvatarUpdate extends Vue {
   public currentLanguage = '';
 
   public catalog = AvatarCatalog;
-  public isAvatarRobot = false;
+  public isAvatarRobot = true;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
