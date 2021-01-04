@@ -19,18 +19,18 @@ export class Catalog {
 let accesoriesTypes = [
   { text: 'Sin lentes', value: 'Blank' },
   { text: 'Diva', value: 'Kurt' },
-  { text: 'blancos', value: 'Prescription01' },
-  { text: 'nerd', value: 'Prescription02' },
-  { text: 'normales', value: 'Round' },
-  { text: 'solares ligeros', value: 'Sunglasses' },
-  { text: 'solares', value: 'Wayfarers' }
+  { text: 'Blancos', value: 'Prescription01' },
+  { text: 'Programador', value: 'Prescription02' },
+  { text: 'Normales', value: 'Round' },
+  { text: 'Solares ligeros', value: 'Sunglasses' },
+  { text: 'Solares', value: 'Wayfarers' }
 ]
 
 let clotheType = [
   { text: 'Camisa Blazer', value: 'BlazerShirt' },
   { text: 'Suéter Blazer', value: 'BlazerSweater' },
   { text: 'Suéter con cuello', value: 'CollarSweater' },
-  { text: 'Playera con dibujo', value: 'GraphicShirt' },
+  { text: 'Playera estampada', value: 'GraphicShirt' },
   { text: 'Capucha', value: 'Hoodie' },
   { text: 'Overol', value: 'Overall' },
   { text: 'Cuello redondo', value: 'ShirtCrewNeck' },
@@ -39,21 +39,21 @@ let clotheType = [
 ]
 
 let clotheColor = [
-  { text: 'negro', value: 'Black' },
-  { text: 'azul-claro', value: 'Blue01' },
-  { text: 'azul-pastel', value: 'PastelBlue' },
-  { text: 'azul-fuerte', value: 'Blue02' },
-  { text: 'azul-rey', value: 'Blue03' },
-  { text: 'gris-claro', value: 'Gray01' },
-  { text: 'gris-fuerte', value: 'Gray02' },
-  { text: 'gris-oxford', value: 'Heather' },
-  { text: 'verde-pastel', value: 'PastelGreen' },
-  { text: 'naranja-pastel', value: 'PastelOrange' },
-  { text: 'rojo-pastel', value: 'PastelRed' },
-  { text: 'amarillo-pastel', value: 'PastelYellow' },
-  { text: 'rosa', value: 'Pink' },
-  { text: 'rojo', value: 'Red' },
-  { text: 'blanco', value: 'White' }
+  { text: 'black', value: 'Black' },
+  { text: 'blue-claro', value: 'Blue01' },
+  { text: 'blue-pastel', value: 'PastelBlue' },
+  { text: 'blue-fuerte', value: 'Blue02' },
+  { text: 'blue-rey', value: 'Blue03' },
+  { text: 'gray-claro', value: 'Gray01' },
+  { text: 'gray-fuerte', value: 'Gray02' },
+  { text: 'gray-oxford', value: 'Heather' },
+  { text: 'green-pastel', value: 'PastelGreen' },
+  { text: 'orange-pastel', value: 'PastelOrange' },
+  { text: 'red-pastel', value: 'PastelRed' },
+  { text: 'yellow-pastel', value: 'PastelYellow' },
+  { text: 'pink', value: 'Pink' },
+  { text: 'red', value: 'Red' },
+  { text: 'white', value: 'White' }
 ]
 
 let eyebrowType = [
@@ -73,7 +73,7 @@ let eyebrowType = [
 
 let eyeType = [
   { text: 'Cerrados', value: 'Close' },
-  { text: 'LLorando', value: 'Cry' },
+  { text: 'Llorando', value: 'Cry' },
   { text: 'Normal', value: 'Default' },
   { text: 'Mareado', value: 'Dizzy' },
   { text: 'Mirada', value: 'EyeRoll' },
@@ -100,12 +100,12 @@ let facialHairColor = [
 ]
 
 let facialHairType = [
-  { text: 'Option 1', value: 'Blank' },
-  { text: 'Option 1', value: 'BeardMedium' },
-  { text: 'Option 1', value: 'BeardLight' },
-  { text: 'Option 1', value: 'BeardMagestic' },
-  { text: 'Option 1', value: 'MoustacheFancy' },
-  { text: 'Option 1', value: 'MoustacheMagnum' }
+  { text: 'Sin barba', value: 'Blank' },
+  { text: 'Media', value: 'BeardMedium' },
+  { text: 'Ligera', value: 'BeardLight' },
+  { text: 'Abundante', value: 'BeardMagestic' },
+  { text: 'Fantasía', value: 'MoustacheFancy' },
+  { text: 'Magnum', value: 'MoustacheMagnum' }
 ]
 
 let graphicType = [
@@ -123,97 +123,97 @@ let graphicType = [
 ]
 
 let hairColor = [
-  { text: 'Option 1', value: 'Auburn' },
-  { text: 'Option 1', value: 'Black' },
-  { text: 'Option 1', value: 'Blonde' },
-  { text: 'Option 1', value: 'BlondeGolden' },
-  { text: 'Option 1', value: 'Brown' },
-  { text: 'Option 1', value: 'BrownDark' },
-  { text: 'Option 1', value: 'PastelPink' },
-  { text: 'Option 1', value: 'Platinum' },
-  { text: 'Option 1', value: 'Red' },
-  { text: 'Option 1', value: 'SilverGray' }
+  { text: 'auburn', value: 'Auburn' },
+  { text: 'black', value: 'Black' },
+  { text: 'blonde', value: 'Blonde' },
+  { text: 'blolde-golden', value: 'BlondeGolden' },
+  { text: 'brown', value: 'Brown' },
+  { text: 'brown-dark', value: 'BrownDark' },
+  { text: 'pink-pastel', value: 'PastelPink' },
+  { text: 'platinum', value: 'Platinum' },
+  { text: 'red', value: 'Red' },
+  { text: 'gray-claro', value: 'SilverGray' }
 ]
 
 let mouthType = [
-  { text: 'Option 1', value: 'Concerned' },
-  { text: 'Option 1', value: 'Default' },
-  { text: 'Option 1', value: 'Disbelief' },
-  { text: 'Option 1', value: 'Eating' },
-  { text: 'Option 1', value: 'Grimace' },
-  { text: 'Option 1', value: 'Sad' },
-  { text: 'Option 1', value: 'ScreamOpen' },
-  { text: 'Option 1', value: 'Serious' },
-  { text: 'Option 1', value: 'Smile' },
-  { text: 'Option 1', value: 'Tongue' },
-  { text: 'Option 1', value: 'Twinkle' },
-  { text: 'Option 1', value: 'Vomit' }
+  { text: 'Preocupado', value: 'Concerned' },
+  { text: 'Normal', value: 'Default' },
+  { text: 'Incredulo', value: 'Disbelief' },
+  { text: 'Comiendo', value: 'Eating' },
+  { text: 'Mueca', value: 'Grimace' },
+  { text: 'Triste', value: 'Sad' },
+  { text: 'Gritando', value: 'ScreamOpen' },
+  { text: 'Serio', value: 'Serious' },
+  { text: 'Sonriendo', value: 'Smile' },
+  { text: 'Monstrando la lengua', value: 'Tongue' },
+  { text: 'Confiado', value: 'Twinkle' },
+  { text: 'Vomitando', value: 'Vomit' }
 ]
 
 let skinColor = [
-  { text: 'Option 1', value: 'Tanned' },
-  { text: 'Option 1', value: 'Yellow' },
-  { text: 'Option 1', value: 'Pale' },
-  { text: 'Option 1', value: 'Light' },
-  { text: 'Option 1', value: 'Brown' },
-  { text: 'Option 1', value: 'DarkBrown' },
-  { text: 'Option 1', value: 'Black' }
+  { text: 'skin-tanned', value: 'Tanned' },
+  { text: 'skin-yellow', value: 'Yellow' },
+  { text: 'skin-light', value: 'Pale' },
+  { text: 'skin-pale', value: 'Light' },
+  { text: 'skin-brown', value: 'Brown' },
+  { text: 'skin-dark-brown', value: 'DarkBrown' },
+  { text: 'skin-dark-black', value: 'Black' }
 ]
 
 let topType = [
-  { text: 'Option 1', value: 'NoHair' },
-  { text: 'Option 1', value: 'Eyepatch' },
-  { text: 'Option 1', value: 'Hat' },
-  { text: 'Option 1', value: 'Hijab' },
-  { text: 'Option 1', value: 'Turban' },
-  { text: 'Option 1', value: 'WinterHat1' },
-  { text: 'Option 1', value: 'WinterHat2' },
-  { text: 'Option 1', value: 'WinterHat3' },
-  { text: 'Option 1', value: 'WinterHat4' },
-  { text: 'Option 1', value: 'LongHairBigHair' },
-  { text: 'Option 1', value: 'LongHairBob' },
-  { text: 'Option 1', value: 'LongHairBun' },
-  { text: 'Option 1', value: 'LongHairCurly' },
-  { text: 'Option 1', value: 'LongHairCurvy' },
-  { text: 'Option 1', value: 'LongHairDreads' },
-  { text: 'Option 1', value: 'LongHairFrida' },
-  { text: 'Option 1', value: 'LongHairFro' },
-  { text: 'Option 1', value: 'LongHairFroBand' },
-  { text: 'Option 1', value: 'LongHairNotTooLong' },
-  { text: 'Option 1', value: 'LongHairShavedSides' },
-  { text: 'Option 1', value: 'LongHairMiaWallace' },
-  { text: 'Option 1', value: 'LongHairStraight' },
-  { text: 'Option 1', value: 'LongHairStraight2' },
-  { text: 'Option 1', value: 'LongHairStraightStrand' },
-  { text: 'Option 1', value: 'ShortHairDreads01' },
-  { text: 'Option 1', value: 'ShortHairDreads02' },
-  { text: 'Option 1', value: 'ShortHairFrizzle' },
-  { text: 'Option 1', value: 'ShortHairShaggyMullet' },
-  { text: 'Option 1', value: 'ShortHairShortCurly' },
-  { text: 'Option 1', value: 'ShortHairShortFlat' },
-  { text: 'Option 1', value: 'ShortHairShortRound' },
-  { text: 'Option 1', value: 'ShortHairShortWaved' },
-  { text: 'Option 1', value: 'ShortHairSides' },
-  { text: 'Option 1', value: 'ShortHairTheCaesar' },
-  { text: 'Option 1', value: 'ShortHairTheCaesarSidePart' }
+  { text: 'Pelón', value: 'NoHair', type: 'pelon' },
+  { text: 'Parche en ojo', value: 'Eyepatch', type: 'pelon' },
+  { text: 'Sombrero', value: 'Hat', type: 'hat' },
+  { text: 'Hijab', value: 'Hijab', type: 'hat' },
+  { text: 'Turbante', value: 'Turban', type: 'hat' },
+  { text: 'Invierno tradicional', value: 'WinterHat1', type: 'hat' },
+  { text: 'Invierno indio ', value: 'WinterHat2', type: 'hat' },
+  { text: 'Invierno clásico', value: 'WinterHat3', type: 'hat' },
+  { text: 'Invierno con orejas', value: 'WinterHat4', type: 'hat' },
+  { text: 'Largo', value: 'LongHairBigHair', type: 'hair' },
+  { text: 'Corto Mediano', value: 'LongHairBob', type: 'hair' },
+  { text: 'Chongo', value: 'LongHairBun', type: 'hair' },
+  { text: 'Corto ondulado', value: 'LongHairCurly', type: 'hair' },
+  { text: 'Largo ondulado', value: 'LongHairCurvy', type: 'hair' },
+  { text: 'Rastas', value: 'LongHairDreads', type: 'hair' },
+  { text: 'Frida kahlo', value: 'LongHairFrida', type: 'hair' },
+  { text: 'Afro', value: 'LongHairFro', type: 'hair' },
+  { text: 'Afro con banda', value: 'LongHairFroBand', type: 'hair' },
+  { text: 'No muy largo', value: 'LongHairNotTooLong', type: 'hair' },
+  { text: 'Largo con lados afeitados', value: 'LongHairShavedSides', type: 'hair' },
+  { text: 'Largo con fleco', value: 'LongHairMiaWallace', type: 'hair' },
+  { text: 'Largo planchado', value: 'LongHairStraight', type: 'hair' },
+  { text: 'Largo medio planchado', value: 'LongHairStraight2', type: 'hair' },
+  { text: 'Planchado estándar', value: 'LongHairStraightStrand', type: 'hair' },
+  { text: 'Corto', value: 'ShortHairDreads01', type: 'hair' },
+  { text: 'Corto rebelde', value: 'ShortHairDreads02', type: 'hair' },
+  { text: 'Corto con frizz', value: 'ShortHairFrizzle', type: 'hair' },
+  { text: 'Corto Shaggy Mullet', value: 'ShortHairShaggyMullet', type: 'hair' },
+  { text: 'Corto y ondulado', value: 'ShortHairShortCurly', type: 'hair' },
+  { text: 'Corto y plano', value: 'ShortHairShortFlat', type: 'hair' },
+  { text: 'Corto redondeado', value: 'ShortHairShortRound', type: 'hair' },
+  { text: 'Corto con ondas', value: 'ShortHairShortWaved', type: 'hair' },
+  { text: 'Cabello a los lados', value: 'ShortHairSides', type: 'hair' },
+  { text: 'Cesar', value: 'ShortHairTheCaesar', type: 'hair' },
+  { text: 'Cesar levantado', value: 'ShortHairTheCaesarSidePart', type: 'hair' }
 ]
 
 let topColor = [
-  { text: 'Option 1', value: 'Black' },
-  { text: 'Option 1', value: 'Blue01' },
-  { text: 'Option 1', value: 'Blue02' },
-  { text: 'Option 1', value: 'Blue03' },
-  { text: 'Option 1', value: 'Gray01' },
-  { text: 'Option 1', value: 'Gray02' },
-  { text: 'Option 1', value: 'Heather' },
-  { text: 'Option 1', value: 'PastelBlue' },
-  { text: 'Option 1', value: 'PastelGreen' },
-  { text: 'Option 1', value: 'PastelOrange' },
-  { text: 'Option 1', value: 'PastelRed' },
-  { text: 'Option 1', value: 'PastelYellow' },
-  { text: 'Option 1', value: 'Pink' },
-  { text: 'Option 1', value: 'Red' },
-  { text: 'Option 1', value: 'White' }
+  { text: 'dark', value: 'Black' },
+  { text: 'blue-pastel', value: 'Blue01' },
+  { text: 'blue-claro', value: 'Blue02' },
+  { text: 'blue-fuerte', value: 'Blue03' },
+  { text: 'gray-claro', value: 'Gray01' },
+  { text: 'gray-fuerte', value: 'Gray02' },
+  { text: 'gray-oxford', value: 'Heather' },
+  { text: 'blue-pastel', value: 'PastelBlue' },
+  { text: 'green-pastel', value: 'PastelGreen' },
+  { text: 'orange-pastel', value: 'PastelOrange' },
+  { text: 'red-pastel', value: 'PastelRed' },
+  { text: 'yellow-pastel', value: 'PastelYellow' },
+  { text: 'pink', value: 'Pink' },
+  { text: 'red', value: 'Red' },
+  { text: 'gray', value: 'White' }
 ]
 
 export let AvatarCatalog = new Catalog(

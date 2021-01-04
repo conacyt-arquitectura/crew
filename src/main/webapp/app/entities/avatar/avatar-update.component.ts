@@ -5,7 +5,7 @@ import { numeric, required, minLength, maxLength, minValue, maxValue } from 'vue
 import AlertService from '@/shared/alert/alert.service';
 import { IAvatar, Avatar } from '@/shared/model/avatar.model';
 import AvatarService from './avatar.service';
-import { AvatarCatalog } from '@/util/avatar.catalog';
+import { AvatarCatalog, Catalog } from '@/util/avatar.catalog';
 
 const validations: any = {
   avatar: {
@@ -40,6 +40,9 @@ export default class AvatarUpdate extends Vue {
 
   public catalog = AvatarCatalog;
   public isAvatarRobot = true;
+
+  public hairTypeList = this.catalog.topType.filter(topType => topType.type === 'hair').map(topType => topType.value);
+  public hatTypeList = this.catalog.topType.filter(topType => topType.type === 'hat').map(topType => topType.value);
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -95,4 +98,28 @@ export default class AvatarUpdate extends Vue {
   }
 
   public initRelationships(): void { }
+
+  public get isTshirt(): boolean {
+    return this.avatar.clotheType !== 'BlazerShirt' && this.avatar.clotheType !== 'BlazerSweater';
+  }
+
+  public get isGraphicTshirt(): boolean {
+    return this.avatar.clotheType === 'GraphicShirt';
+  }
+
+  public get hasMustache(): boolean {
+    return this.avatar.facialHairType !== 'Blank';
+  }
+
+  public get hasHat(): boolean {
+    console.log(this.hatTypeList);
+
+    return this.hatTypeList.includes(this.avatar.topType);
+  }
+
+  public get hasHair(): boolean {
+    console.log('testing hair' + this.avatar.topType);
+
+    return this.hairTypeList.includes(this.avatar.topType);
+  }
 }

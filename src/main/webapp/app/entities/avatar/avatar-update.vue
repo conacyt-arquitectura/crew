@@ -64,12 +64,63 @@
                 />
               </div>
             </b-tab>
-
-            <b-tab title="Lentes">
+            <b-tab :title="$t('crewApp.avatar.topType')">
               <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.accessoriesType')" for="avatar-accessoriesType"
-                  >Accessories Type</label
-                >
+                <b-form-radio-group
+                  class=""
+                  id="top-type"
+                  v-model="avatar.topType"
+                  :options="catalog.topType"
+                  button-variant="outline-primary"
+                ></b-form-radio-group>
+              </div>
+
+              <div class="form-group" v-if="hasHat">
+                <label class="form-control-label" v-text="$t('crewApp.avatar.topColor')" for="avatar-topColor">Top Color</label>
+                <b-form-radio-group class="" id="top-color" v-model="avatar.topColor" buttons>
+                  <b-form-radio
+                    v-for="(skin, index) in catalog.topColor"
+                    :key="index"
+                    :button-variant="skin.text"
+                    :value="skin.value"
+                    buttons
+                    ><div :class="'text-' + skin.text">C</div></b-form-radio
+                  >
+                </b-form-radio-group>
+              </div>
+
+              <div class="form-group" v-if="hasHair">
+                <label class="form-control-label" v-text="$t('crewApp.avatar.hairColor')" for="avatar-hairColor">Hair Color</label>
+                <b-form-radio-group class="" id="hair-color" v-model="avatar.hairColor" buttons>
+                  <b-form-radio
+                    v-for="(skin, index) in catalog.hairColor"
+                    :key="index"
+                    :button-variant="skin.text"
+                    :value="skin.value"
+                    buttons
+                    ><div :class="'text-' + skin.text">C</div></b-form-radio
+                  >
+                </b-form-radio-group>
+              </div>
+            </b-tab>
+            <b-tab :title="$t('crewApp.avatar.skinColor')">
+              <div class="form-group">
+                <b-form-radio-group id="skin-color" v-model="avatar.skinColor" buttons>
+                  <b-form-radio
+                    v-for="(skin, index) in catalog.skinColor"
+                    :key="index"
+                    :button-variant="skin.text"
+                    :value="skin.value"
+                    stacked
+                    buttons
+                    ><div :class="'text-' + skin.text">Tono</div></b-form-radio
+                  >
+                </b-form-radio-group>
+              </div>
+            </b-tab>
+
+            <b-tab :title="$t('crewApp.avatar.accessoriesType')">
+              <div class="form-group">
                 <b-form-radio-group
                   class=""
                   id="glasses-type"
@@ -79,19 +130,16 @@
                 ></b-form-radio-group>
               </div>
             </b-tab>
-
-            <b-tab title="Ropa">
+            <b-tab :title="$t('crewApp.avatar.clotheType')">
               <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.clotheType')" for="avatar-clotheType">Clothe Type</label>
                 <b-form-radio-group
-                  class=""
                   id="clothe-type"
                   v-model="avatar.clotheType"
                   :options="catalog.clotheType"
                   button-variant="outline-primary"
                 ></b-form-radio-group>
               </div>
-              <div class="form-group" v-if="avatar.clotheType === 'GraphicShirt'">
+              <div class="form-group" v-if="isGraphicTshirt">
                 <label class="form-control-label" v-text="$t('crewApp.avatar.graphicType')" for="avatar-graphicType">Graphic Type</label>
                 <b-form-radio-group
                   id="graphic-type"
@@ -100,8 +148,9 @@
                   button-variant="outline-primary"
                 ></b-form-radio-group>
               </div>
-              <div class="form-group">
+              <div class="form-group" v-if="isTshirt">
                 <label class="form-control-label" v-text="$t('crewApp.avatar.clotheColor')" for="avatar-clotheColor">Clothe Color</label>
+                <br />
                 <b-form-radio-group class="" id="clothe-color" v-model="avatar.clotheColor" buttons>
                   <b-form-radio
                     v-for="(clothe, index) in catalog.clotheColor"
@@ -109,7 +158,8 @@
                     :button-variant="clothe.text"
                     :value="clothe.value"
                     buttons
-                  ></b-form-radio>
+                    ><div :class="'text-' + clothe.text">C</div></b-form-radio
+                  >
                 </b-form-radio-group>
               </div>
             </b-tab>
@@ -140,18 +190,6 @@
 
             <b-tab title="Barba">
               <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.facialHairColor')" for="avatar-facialHairColor"
-                  >Facial Hair Color</label
-                >
-                <b-form-radio-group
-                  class=""
-                  id="facial-hair-color"
-                  v-model="avatar.facialHairColor"
-                  :options="catalog.facialHairColor"
-                  button-variant="outline-primary"
-                ></b-form-radio-group>
-              </div>
-              <div class="form-group">
                 <label class="form-control-label" v-text="$t('crewApp.avatar.facialHairType')" for="avatar-facialHairType"
                   >Facial Hair Type</label
                 >
@@ -163,16 +201,15 @@
                   button-variant="outline-primary"
                 ></b-form-radio-group>
               </div>
-            </b-tab>
-
-            <b-tab title="Lentes">
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.hairColor')" for="avatar-hairColor">Hair Color</label>
+              <div class="form-group" v-if="hasMustache">
+                <label class="form-control-label" v-text="$t('crewApp.avatar.facialHairColor')" for="avatar-facialHairColor"
+                  >Facial Hair Color</label
+                >
                 <b-form-radio-group
                   class=""
-                  id="hair-color"
-                  v-model="avatar.hairColor"
-                  :options="catalog.hairColor"
+                  id="facial-hair-color"
+                  v-model="avatar.facialHairColor"
+                  :options="catalog.facialHairColor"
                   button-variant="outline-primary"
                 ></b-form-radio-group>
               </div>
@@ -186,43 +223,6 @@
                   id="mouth-type"
                   v-model="avatar.mouthType"
                   :options="catalog.mouthType"
-                  button-variant="outline-primary"
-                ></b-form-radio-group>
-              </div>
-            </b-tab>
-
-            <b-tab title="Color de piel">
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.skinColor')" for="avatar-skinColor">Skin Color</label>
-                <b-form-radio-group
-                  class=""
-                  id="skin-color"
-                  v-model="avatar.skinColor"
-                  :options="catalog.skinColor"
-                  button-variant="outline-primary"
-                ></b-form-radio-group>
-              </div>
-            </b-tab>
-
-            <b-tab title="Sombreros">
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.topType')" for="avatar-topType">Top Type</label>
-                <b-form-radio-group
-                  class=""
-                  id="top-type"
-                  v-model="avatar.topType"
-                  :options="catalog.topType"
-                  button-variant="outline-primary"
-                ></b-form-radio-group>
-              </div>
-
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('crewApp.avatar.topColor')" for="avatar-topColor">Top Color</label>
-                <b-form-radio-group
-                  class=""
-                  id="top-color"
-                  v-model="avatar.topColor"
-                  :options="catalog.topColor"
                   button-variant="outline-primary"
                 ></b-form-radio-group>
               </div>

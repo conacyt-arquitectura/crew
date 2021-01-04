@@ -16,23 +16,23 @@
       "detail": {
         "title": "Avatar"
       },
-      "isCircle": "Fondo",
-      "isHuman": "Es humano?",
+      "isCircle": "Activar fondo",
+      "isHuman": "Activar avatar humano",
       "avatarStyle": "Avatar Style",
-      "circleColor": "Color del fondo",
+      "circleColor": "Color",
       "accessoriesType": "Lentes",
-      "clotheType": "Tipo de ropa",
-      "clotheColor": "Color de ropa",
-      "eyebrowType": "Eyebrow Type",
-      "eyeType": "Eye Type",
-      "facialHairColor": "Facial Hair Color",
-      "facialHairType": "Facial Hair Type",
-      "graphicType": "Graphic Type",
-      "hairColor": "Hair Color",
-      "mouthType": "Mouth Type",
-      "skinColor": "Skin Color",
-      "topType": "Top Type",
-      "topColor": "Top Color"
+      "clotheType": "Ropa",
+      "clotheColor": "Color",
+      "eyebrowType": "Tipo de ceja",
+      "eyeType": "Tipo de ojos",
+      "facialHairColor": "Color",
+      "facialHairType": "Tipo de barba",
+      "graphicType": "Tipo de estampado",
+      "hairColor": "Color",
+      "mouthType": "Tipo de boca",
+      "skinColor": "Tono de piel",
+      "topType": "Cabello",
+      "topColor": "Color"
     }
   }
 }
