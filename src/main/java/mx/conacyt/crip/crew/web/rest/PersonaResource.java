@@ -1,28 +1,28 @@
 package mx.conacyt.crip.crew.web.rest;
 
-import mx.conacyt.crip.crew.service.PersonaService;
-import mx.conacyt.crip.crew.web.rest.errors.BadRequestAlertException;
-import mx.conacyt.crip.crew.service.dto.PersonaDTO;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import javax.validation.Valid;
+import mx.conacyt.crip.crew.domain.User;
+import mx.conacyt.crip.crew.security.SecurityUtils;
+import mx.conacyt.crip.crew.service.PersonaService;
+import mx.conacyt.crip.crew.service.UserService;
+import mx.conacyt.crip.crew.service.dto.PersonaDTO;
+import mx.conacyt.crip.crew.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  * REST controller for managing {@link mx.conacyt.crip.crew.domain.Persona}.
@@ -30,7 +30,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class PersonaResource {
-
     private final Logger log = LoggerFactory.getLogger(PersonaResource.class);
 
     private static final String ENTITY_NAME = "persona";
@@ -40,8 +39,11 @@ public class PersonaResource {
 
     private final PersonaService personaService;
 
-    public PersonaResource(PersonaService personaService) {
+    private final UserService userService;
+
+    public PersonaResource(PersonaService personaService, UserService userService) {
         this.personaService = personaService;
+        this.userService = userService;
     }
 
     /**
@@ -58,7 +60,8 @@ public class PersonaResource {
             throw new BadRequestAlertException("A new persona cannot already have an ID", ENTITY_NAME, "idexists");
         }
         PersonaDTO result = personaService.save(personaDTO);
-        return ResponseEntity.created(new URI("/api/personas/" + result.getId()))
+        return ResponseEntity
+            .created(new URI("/api/personas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId()))
             .body(result);
     }
@@ -79,7 +82,8 @@ public class PersonaResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         PersonaDTO result = personaService.save(personaDTO);
-        return ResponseEntity.ok()
+        return ResponseEntity
+            .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, personaDTO.getId()))
             .body(result);
     }
@@ -108,6 +112,13 @@ public class PersonaResource {
     public ResponseEntity<PersonaDTO> getPersona(@PathVariable String id) {
         log.debug("REST request to get Persona : {}", id);
         Optional<PersonaDTO> personaDTO = personaService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(personaDTO);
+    }
+
+    @GetMapping("/personas/login")
+    public ResponseEntity<PersonaDTO> getPersonaByLogin() {
+        String login = SecurityUtils.getCurrentUserLogin().orElseThrow();
+        Optional<PersonaDTO> personaDTO = personaService.findByLogin(login);
         return ResponseUtil.wrapOrNotFound(personaDTO);
     }
 

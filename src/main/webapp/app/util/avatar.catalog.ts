@@ -57,8 +57,8 @@ let clotheColor = [
 ]
 
 let eyebrowType = [
-  { text: 'Enojado', value: 'Angry' },
-  { text: 'Ejonado natural', value: 'AngryNatural' },
+  { text: 'Molesto', value: 'Angry' },
+  { text: 'Muy molesto', value: 'AngryNatural' },
   { text: 'Normal', value: 'Default' },
   { text: 'Normal natural', value: 'DefaultNatural' },
   { text: 'Plano natural', value: 'FlatNatural' },

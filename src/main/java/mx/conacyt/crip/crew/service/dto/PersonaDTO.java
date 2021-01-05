@@ -1,13 +1,12 @@
 package mx.conacyt.crip.crew.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * A DTO for the {@link mx.conacyt.crip.crew.domain.Persona} entity.
  */
 public class PersonaDTO implements Serializable {
-    
     private String id;
 
     @NotNull
@@ -30,7 +29,9 @@ public class PersonaDTO implements Serializable {
     private String areaId;
 
     private String badgesId;
-    
+
+    private String userId;
+
     public String getId() {
         return id;
     }
@@ -117,6 +118,14 @@ public class PersonaDTO implements Serializable {
 
     public void setBadgesId(String badgeId) {
         this.badgesId = badgeId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override

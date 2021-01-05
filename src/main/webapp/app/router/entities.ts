@@ -162,13 +162,7 @@ export default [
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/persona/new',
-    name: 'PersonaCreate',
-    component: PersonaUpdate,
-    meta: { authorities: [Authority.USER] },
-  },
-  {
-    path: '/persona/:personaId/edit',
+    path: '/persona/edit',
     name: 'PersonaEdit',
     component: PersonaUpdate,
     meta: { authorities: [Authority.USER] },
@@ -210,13 +204,7 @@ export default [
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/avatar/new',
-    name: 'AvatarCreate',
-    component: AvatarUpdate,
-    meta: { authorities: [Authority.USER] },
-  },
-  {
-    path: '/avatar/:avatarId/edit',
+    path: '/avatar/edit',
     name: 'AvatarEdit',
     component: AvatarUpdate,
     meta: { authorities: [Authority.USER] },

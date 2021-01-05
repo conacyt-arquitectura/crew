@@ -1,5 +1,12 @@
 package mx.conacyt.crip.crew.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.List;
 import mx.conacyt.crip.crew.CrewApp;
 import mx.conacyt.crip.crew.config.TestSecurityConfiguration;
 import mx.conacyt.crip.crew.domain.Avatar;
@@ -7,7 +14,6 @@ import mx.conacyt.crip.crew.repository.AvatarRepository;
 import mx.conacyt.crip.crew.service.AvatarService;
 import mx.conacyt.crip.crew.service.dto.AvatarDTO;
 import mx.conacyt.crip.crew.service.mapper.AvatarMapper;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +23,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 /**
  * Integration tests for the {@link AvatarResource} REST controller.
  */
@@ -32,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser
 public class AvatarResourceIT {
-
     private static final Boolean DEFAULT_IS_CIRCLE = false;
     private static final Boolean UPDATED_IS_CIRCLE = true;
 
@@ -121,6 +118,7 @@ public class AvatarResourceIT {
             .topColor(DEFAULT_TOP_COLOR);
         return avatar;
     }
+
     /**
      * Create an updated entity for this test.
      *
@@ -159,16 +157,20 @@ public class AvatarResourceIT {
         int databaseSizeBeforeCreate = avatarRepository.findAll().size();
         // Create the Avatar
         AvatarDTO avatarDTO = avatarMapper.toDto(avatar);
-        restAvatarMockMvc.perform(post("/api/avatars").with(csrf())
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(avatarDTO)))
+        restAvatarMockMvc
+            .perform(
+                post("/api/avatars")
+                    .with(csrf())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(avatarDTO))
+            )
             .andExpect(status().isCreated());
 
         // Validate the Avatar in the database
         List<Avatar> avatarList = avatarRepository.findAll();
         assertThat(avatarList).hasSize(databaseSizeBeforeCreate + 1);
         Avatar testAvatar = avatarList.get(avatarList.size() - 1);
-        assertThat(testAvatar.isIsCircle()).isEqualTo(DEFAULT_IS_CIRCLE);
+        assertThat(testAvatar.isCircle()).isEqualTo(DEFAULT_IS_CIRCLE);
         assertThat(testAvatar.getAvatarStyle()).isEqualTo(DEFAULT_AVATAR_STYLE);
         assertThat(testAvatar.getCircleColor()).isEqualTo(DEFAULT_CIRCLE_COLOR);
         assertThat(testAvatar.getAccessoriesType()).isEqualTo(DEFAULT_ACCESSORIES_TYPE);
@@ -195,9 +197,13 @@ public class AvatarResourceIT {
         AvatarDTO avatarDTO = avatarMapper.toDto(avatar);
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restAvatarMockMvc.perform(post("/api/avatars").with(csrf())
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(avatarDTO)))
+        restAvatarMockMvc
+            .perform(
+                post("/api/avatars")
+                    .with(csrf())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(avatarDTO))
+            )
             .andExpect(status().isBadRequest());
 
         // Validate the Avatar in the database
@@ -205,14 +211,14 @@ public class AvatarResourceIT {
         assertThat(avatarList).hasSize(databaseSizeBeforeCreate);
     }
 
-
     @Test
     public void getAllAvatars() throws Exception {
         // Initialize the database
         avatarRepository.save(avatar);
 
         // Get all the avatarList
-        restAvatarMockMvc.perform(get("/api/avatars?sort=id,desc"))
+        restAvatarMockMvc
+            .perform(get("/api/avatars?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(avatar.getId())))
@@ -233,14 +239,15 @@ public class AvatarResourceIT {
             .andExpect(jsonPath("$.[*].topType").value(hasItem(DEFAULT_TOP_TYPE)))
             .andExpect(jsonPath("$.[*].topColor").value(hasItem(DEFAULT_TOP_COLOR)));
     }
-    
+
     @Test
     public void getAvatar() throws Exception {
         // Initialize the database
         avatarRepository.save(avatar);
 
         // Get the avatar
-        restAvatarMockMvc.perform(get("/api/avatars/{id}", avatar.getId()))
+        restAvatarMockMvc
+            .perform(get("/api/avatars/{id}", avatar.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(avatar.getId()))
@@ -261,11 +268,11 @@ public class AvatarResourceIT {
             .andExpect(jsonPath("$.topType").value(DEFAULT_TOP_TYPE))
             .andExpect(jsonPath("$.topColor").value(DEFAULT_TOP_COLOR));
     }
+
     @Test
     public void getNonExistingAvatar() throws Exception {
         // Get the avatar
-        restAvatarMockMvc.perform(get("/api/avatars/{id}", Long.MAX_VALUE))
-            .andExpect(status().isNotFound());
+        restAvatarMockMvc.perform(get("/api/avatars/{id}", Long.MAX_VALUE)).andExpect(status().isNotFound());
     }
 
     @Test
@@ -296,16 +303,20 @@ public class AvatarResourceIT {
             .topColor(UPDATED_TOP_COLOR);
         AvatarDTO avatarDTO = avatarMapper.toDto(updatedAvatar);
 
-        restAvatarMockMvc.perform(put("/api/avatars").with(csrf())
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(avatarDTO)))
+        restAvatarMockMvc
+            .perform(
+                put("/api/avatars")
+                    .with(csrf())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(avatarDTO))
+            )
             .andExpect(status().isOk());
 
         // Validate the Avatar in the database
         List<Avatar> avatarList = avatarRepository.findAll();
         assertThat(avatarList).hasSize(databaseSizeBeforeUpdate);
         Avatar testAvatar = avatarList.get(avatarList.size() - 1);
-        assertThat(testAvatar.isIsCircle()).isEqualTo(UPDATED_IS_CIRCLE);
+        assertThat(testAvatar.isCircle()).isEqualTo(UPDATED_IS_CIRCLE);
         assertThat(testAvatar.getAvatarStyle()).isEqualTo(UPDATED_AVATAR_STYLE);
         assertThat(testAvatar.getCircleColor()).isEqualTo(UPDATED_CIRCLE_COLOR);
         assertThat(testAvatar.getAccessoriesType()).isEqualTo(UPDATED_ACCESSORIES_TYPE);
@@ -331,9 +342,13 @@ public class AvatarResourceIT {
         AvatarDTO avatarDTO = avatarMapper.toDto(avatar);
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
-        restAvatarMockMvc.perform(put("/api/avatars").with(csrf())
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(avatarDTO)))
+        restAvatarMockMvc
+            .perform(
+                put("/api/avatars")
+                    .with(csrf())
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(avatarDTO))
+            )
             .andExpect(status().isBadRequest());
 
         // Validate the Avatar in the database
@@ -349,8 +364,8 @@ public class AvatarResourceIT {
         int databaseSizeBeforeDelete = avatarRepository.findAll().size();
 
         // Delete the avatar
-        restAvatarMockMvc.perform(delete("/api/avatars/{id}", avatar.getId()).with(csrf())
-            .accept(MediaType.APPLICATION_JSON))
+        restAvatarMockMvc
+            .perform(delete("/api/avatars/{id}", avatar.getId()).with(csrf()).accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item

@@ -1,17 +1,14 @@
 package mx.conacyt.crip.crew.service;
 
+import java.util.Optional;
 import mx.conacyt.crip.crew.service.dto.PersonaDTO;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.Optional;
 
 /**
  * Service Interface for managing {@link mx.conacyt.crip.crew.domain.Persona}.
  */
 public interface PersonaService {
-
     /**
      * Save a persona.
      *
@@ -28,7 +25,6 @@ public interface PersonaService {
      */
     Page<PersonaDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" persona.
      *
@@ -43,4 +39,8 @@ public interface PersonaService {
      * @param id the id of the entity.
      */
     void delete(String id);
+
+    Optional<PersonaDTO> findByLogin(String id);
+
+    Optional<PersonaDTO> findByUserId(String id);
 }

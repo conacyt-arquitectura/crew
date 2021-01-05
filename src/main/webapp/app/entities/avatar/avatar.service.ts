@@ -18,6 +18,19 @@ export default class AvatarService {
     });
   }
 
+  public findByLogin(): Promise<IAvatar> {
+    return new Promise<IAvatar>((resolve, reject) => {
+      axios
+        .get(`${baseApiUrl}/login`)
+        .then(res => {
+          resolve(res.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
   public retrieve(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       axios

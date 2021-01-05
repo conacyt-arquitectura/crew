@@ -1,26 +1,23 @@
 package mx.conacyt.crip.crew.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import javax.validation.constraints.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import javax.validation.constraints.*;
-
-import java.io.Serializable;
 
 /**
  * A Persona.
  */
 @Document(collection = "persona")
 public class Persona implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
 
-    @NotNull
     @Field("nombre")
     private String nombre;
 
@@ -41,6 +38,10 @@ public class Persona implements Serializable {
 
     @Field("imagen_content_type")
     private String imagenContentType;
+
+    @DBRef
+    @Field("user")
+    private User user;
 
     @DBRef
     @Field("avatar")
@@ -170,6 +171,19 @@ public class Persona implements Serializable {
         this.avatar = avatar;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public Persona user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Area getArea() {
         return area;
     }
@@ -195,6 +209,7 @@ public class Persona implements Serializable {
     public void setBadges(Badge badge) {
         this.badges = badge;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

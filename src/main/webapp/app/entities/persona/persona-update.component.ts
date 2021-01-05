@@ -55,9 +55,7 @@ export default class PersonaUpdate extends mixins(JhiDataUtils) {
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      if (to.params.personaId) {
-        vm.retrievePersona(to.params.personaId);
-      }
+      vm.retrievePersona();
       vm.initRelationships();
     });
   }
@@ -95,9 +93,9 @@ export default class PersonaUpdate extends mixins(JhiDataUtils) {
     }
   }
 
-  public retrievePersona(personaId): void {
+  public retrievePersona(): void {
     this.personaService()
-      .find(personaId)
+      .findByLogin()
       .then(res => {
         this.persona = res;
       });

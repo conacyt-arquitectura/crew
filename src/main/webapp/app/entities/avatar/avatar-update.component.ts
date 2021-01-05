@@ -46,9 +46,7 @@ export default class AvatarUpdate extends Vue {
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      if (to.params.avatarId) {
-        vm.retrieveAvatar(to.params.avatarId);
-      }
+      vm.retrieveAvatar();
     });
   }
 
@@ -85,9 +83,9 @@ export default class AvatarUpdate extends Vue {
     }
   }
 
-  public retrieveAvatar(avatarId): void {
+  public retrieveAvatar(): void {
     this.avatarService()
-      .find(avatarId)
+      .findByLogin()
       .then(res => {
         this.avatar = res;
       });

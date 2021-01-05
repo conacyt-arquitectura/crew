@@ -28,7 +28,9 @@ import {
   BFormRadioGroup,
   BFormRadio,
   BTabs,
-  BTab
+  BTab,
+  BSidebar,
+  VBToggle
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -55,6 +57,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
   vue.component('b-modal', BModal);
   vue.directive('b-modal', VBModal);
+  vue.directive('b-toggle', VBToggle);
   vue.component('b-form-datepicker', BFormDatepicker);
   vue.component('b-input-group', BInputGroup);
   vue.component('b-input-group-prepend', BInputGroupPrepend);
@@ -63,4 +66,5 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-radio', BFormRadio);
   vue.component('b-tabs', BTabs);
   vue.component('b-tab', BTab);
+  vue.component('b-sidebar', BSidebar);
 }
