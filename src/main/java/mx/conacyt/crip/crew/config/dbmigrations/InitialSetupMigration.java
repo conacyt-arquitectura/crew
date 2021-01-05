@@ -1,14 +1,10 @@
 package mx.conacyt.crip.crew.config.dbmigrations;
 
-import mx.conacyt.crip.crew.domain.Authority;
-import mx.conacyt.crip.crew.domain.User;
-import mx.conacyt.crip.crew.security.AuthoritiesConstants;
-
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
+import mx.conacyt.crip.crew.domain.Authority;
+import mx.conacyt.crip.crew.security.AuthoritiesConstants;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
-import java.time.Instant;
 
 /**
  * Creates the initial database setup.

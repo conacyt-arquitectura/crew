@@ -4,7 +4,7 @@
       "home": {
         "title": "Areas",
         "createLabel": "Crear nuevo Area",
-        "createOrEditLabel": "Crear o editar Area",
+        "createOrEditLabel": "Datos del área",
         "notFound": "Ningún Areas encontrado"
       },
       "created": "Un nuevo Area ha sido creado con el identificador {{ param }}",
