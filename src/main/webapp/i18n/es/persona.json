@@ -4,7 +4,7 @@
       "home": {
         "title": "Personas",
         "createLabel": "Crear nuevo Persona",
-        "createOrEditLabel": "Crear o editar Persona",
+        "createOrEditLabel": "Información básica",
         "notFound": "Ningún Personas encontrado"
       },
       "created": "Un nuevo Persona ha sido creado con el identificador {{ param }}",

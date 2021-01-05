@@ -67,7 +67,6 @@ export default class AvatarUpdate extends Vue {
         .update(this.avatar)
         .then(param => {
           this.isSaving = false;
-          this.$router.go(-1);
           const message = this.$t('crewApp.avatar.updated', { param: param.id });
           this.alertService().showAlert(message, 'info');
         });

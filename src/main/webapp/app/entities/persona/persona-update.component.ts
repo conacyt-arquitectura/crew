@@ -77,7 +77,6 @@ export default class PersonaUpdate extends mixins(JhiDataUtils) {
         .update(this.persona)
         .then(param => {
           this.isSaving = false;
-          this.$router.go(-1);
           const message = this.$t('crewApp.persona.updated', { param: param.id });
           this.alertService().showAlert(message, 'info');
         });

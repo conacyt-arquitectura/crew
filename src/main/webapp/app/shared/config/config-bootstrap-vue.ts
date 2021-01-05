@@ -30,7 +30,8 @@ import {
   BTabs,
   BTab,
   BSidebar,
-  VBToggle
+  VBToggle,
+  BSpinner
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -67,4 +68,5 @@ export function initBootstrapVue(vue) {
   vue.component('b-tabs', BTabs);
   vue.component('b-tab', BTab);
   vue.component('b-sidebar', BSidebar);
+  vue.component('b-spinner', BSpinner);
 }

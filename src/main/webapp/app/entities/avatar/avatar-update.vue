@@ -233,12 +233,7 @@
 
         <div v-show="!avatar.human"></div>
         <div>
-          <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">
-            <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>
-          </button>
-          <button type="submit" id="save-entity" :disabled="$v.avatar.$invalid || isSaving" class="btn btn-primary">
-            <font-awesome-icon icon="save"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.save')">Save</span>
-          </button>
+          <c-save-button :enabled="$v.avatar.$invalid || isSaving" :saving="isSaving"></c-save-button>
         </div>
       </form>
     </div>
