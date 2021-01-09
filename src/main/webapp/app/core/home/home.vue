@@ -1,6 +1,7 @@
 <template>
   <div>
     <div v-if="authenticated" class="home row">
+      <OrgChart />
       <div class="col-md-3">
         <b-overlay :show="isLoading" variant="white" spinner-type="grow" rounded="sm">
           <b-aspect aspect="1:1">

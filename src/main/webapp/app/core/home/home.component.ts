@@ -1,8 +1,13 @@
 import Component from 'vue-class-component';
 import { Inject, Vue } from 'vue-property-decorator';
 import LoginService from '@/account/login.service';
+import OrgChart from '@/components/org-chart/org-chart.vue';
 
-@Component
+@Component({
+  components: {
+    OrgChart
+  }
+})
 export default class Home extends Vue {
   @Inject('loginService')
   private loginService: () => LoginService;
