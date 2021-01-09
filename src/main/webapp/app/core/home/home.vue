@@ -31,44 +31,43 @@
         </div>
       </div>
     </div>
-    <div v-else class="banner">
-      <b-carousel id="carousel-id" :interval="4000" controls indicators background="#0000" style="text-shadow: 1px 1px 2px #333">
-        <b-carousel-slide
-          caption="Pilares"
-          text="Salsa tiene 4 pilares"
-          img-center="true"
-          img-fluid="true"
-          img-thumbnail="true"
-          img-src="/content/images/salsa/pilares.png"
-        >
+    <div v-else>
+      <b-carousel
+        id="carousel-id"
+        img-width="500"
+        img-center
+        :interval="3000"
+        indicators
+        background="#fffff"
+        style="text-shadow: 1px 1px 2px #333"
+      >
+        <b-carousel-slide>
+          <template #img>
+            <div class="text-center">
+              <img class="img-fluid" width="400" src="/content/images/salsa/pilares.png" alt="image slot" />
+            </div>
+          </template>
         </b-carousel-slide>
-        <b-carousel-slide
-          img-center="true"
-          img-fluid="true"
-          img-thumbnail="true"
-          caption="Plataforma"
-          text="Salsa está compuesto de 4 plataformas."
-          img-src="/content/images/salsa/plataformas.png"
-        >
+        <b-carousel-slide>
+          <template #img>
+            <div class="text-center">
+              <img class="img-fluid" width="400" src="/content/images/salsa/plataformas.png" alt="image slot" />
+            </div>
+          </template>
         </b-carousel-slide>
-
-        <b-carousel-slide
-          img-center="true"
-          img-fluid="true"
-          img-thumbnail="true"
-          caption="Direcciones"
-          text="Estamos conformados de 4 direcciones."
-          img-src="/content/images/salsa/direcciones.png"
-        >
+        <b-carousel-slide>
+          <template #img>
+            <div class="text-center">
+              <img class="img-fluid" width="400" src="/content/images/salsa/practicas.png" alt="image slot" />
+            </div>
+          </template>
         </b-carousel-slide>
-        <b-carousel-slide
-          img-center="true"
-          img-fluid="true"
-          img-thumbnail="true"
-          caption="Prácticas"
-          text="Estmos conformados por 4 grupo de prácticas."
-          img-src="/content/images/salsa/practicas.png"
-        >
+        <b-carousel-slide>
+          <template #img>
+            <div class="text-center">
+              <img class="img-fluid" width="400" src="/content/images/salsa/direcciones.png" alt="image slot" />
+            </div>
+          </template>
         </b-carousel-slide>
       </b-carousel>
     </div>
