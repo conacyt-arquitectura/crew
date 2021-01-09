@@ -41,6 +41,15 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faWrench } from '@fortawesome/free-solid-svg-icons/faWrench';
 import { faRobot } from '@fortawesome/free-solid-svg-icons/faRobot';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons/faCloudUploadAlt';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
+import { faAddressBook } from '@fortawesome/free-solid-svg-icons/faAddressBook';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
+import { faMedal } from '@fortawesome/free-solid-svg-icons/faMedal';
+import { faRoute } from '@fortawesome/free-solid-svg-icons/faRoute';
+import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
+import { faUserTag } from '@fortawesome/free-solid-svg-icons/faUserTag';
+import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
 
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
@@ -151,7 +160,16 @@ export function initFortAwesome(vue) {
     faUserPlus,
     faWrench,
     faRobot,
-    faCloudUploadAlt
+    faCloudUploadAlt,
+    faAddressCard,
+    faAddressBook,
+    faUsers,
+    faSitemap,
+    faMedal,
+    faRoute,
+    faLanguage,
+    faUserTag,
+    faCode
   );
 }
 

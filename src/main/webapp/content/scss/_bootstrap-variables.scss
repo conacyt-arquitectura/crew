@@ -10,15 +10,15 @@
 
 $primary: #3e8acc;
 $success: #28a745;
-$info: #17a2b8;
+$info: #8fc1ef;
 $warning: #ffc107;
 $danger: #dc3545;
 
 // Options:
 // Quickly modify global styling by enabling or disabling optional features.
 $enable-rounded: true;
-$enable-shadows: false;
-$enable-gradients: false;
+$enable-shadows: true;
+$enable-gradients: true;
 $enable-transitions: true;
 $enable-hover-media-query: false;
 $enable-grid-classes: true;
@@ -40,6 +40,11 @@ $body-bg: #e4e5e6;
 // Font, line-height, and color for body text, headings, and more.
 
 $font-size-base: 1rem;
+
+// THead
+
+$table-dark-bg: #353d47;
+$table-head-bg: #ffff;
 
 // Para el avatar
 

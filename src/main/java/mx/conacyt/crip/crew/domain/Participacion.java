@@ -1,23 +1,26 @@
 package mx.conacyt.crip.crew.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
-import java.io.Serializable;
 
 /**
  * A Participacion.
  */
 @Document(collection = "participacion")
 public class Participacion implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
+
+    @DBRef
+    @Field("celula")
+    @JsonIgnoreProperties(value = "participacions", allowSetters = true)
+    private Celula celula;
 
     @DBRef
     @Field("persona")
@@ -63,6 +66,15 @@ public class Participacion implements Serializable {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
+
+    public Celula getCelula() {
+        return celula;
+    }
+
+    public void setCelula(Celula celula) {
+        this.celula = celula;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

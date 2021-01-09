@@ -16,6 +16,7 @@
       "detail": {
         "title": "Participacion"
       },
+      "celula": "Celula",
       "persona": "Persona",
       "rol": "Rol"
     }

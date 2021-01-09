@@ -18,7 +18,7 @@
         <router-view></router-view>
       </div>
 
-      <jhi-footer></jhi-footer>
+      <!--   <jhi-footer></jhi-footer> -->
     </div>
   </div>
 </template>

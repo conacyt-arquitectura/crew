@@ -1,23 +1,22 @@
 package mx.conacyt.crip.crew.service.mapper;
 
-
 import mx.conacyt.crip.crew.domain.*;
 import mx.conacyt.crip.crew.service.dto.ParticipacionDTO;
-
 import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link Participacion} and its DTO {@link ParticipacionDTO}.
  */
-@Mapper(componentModel = "spring", uses = {PersonaMapper.class, RolMapper.class})
+@Mapper(componentModel = "spring", uses = { PersonaMapper.class, RolMapper.class, CelulaMapper.class })
 public interface ParticipacionMapper extends EntityMapper<ParticipacionDTO, Participacion> {
-
     @Mapping(source = "persona.id", target = "personaId")
     @Mapping(source = "rol.id", target = "rolId")
+    @Mapping(source = "celula.id", target = "celulaId")
     ParticipacionDTO toDto(Participacion participacion);
 
     @Mapping(source = "personaId", target = "persona")
     @Mapping(source = "rolId", target = "rol")
+    @Mapping(source = "celulaId", target = "celula")
     Participacion toEntity(ParticipacionDTO participacionDTO);
 
     default Participacion fromId(String id) {

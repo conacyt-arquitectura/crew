@@ -2,6 +2,9 @@ import { Component, Vue, Inject } from 'vue-property-decorator';
 
 import { numeric, required, minLength, maxLength, minValue, maxValue } from 'vuelidate/lib/validators';
 
+import CelulaService from '../celula/celula.service';
+import { ICelula } from '@/shared/model/celula.model';
+
 import PersonaService from '../persona/persona.service';
 import { IPersona } from '@/shared/model/persona.model';
 
@@ -24,8 +27,10 @@ export default class ParticipacionUpdate extends Vue {
   @Inject('participacionService') private participacionService: () => ParticipacionService;
   public participacion: IParticipacion = new Participacion();
 
-  @Inject('personaService') private personaService: () => PersonaService;
+  @Inject('celulaService') private celulaService: () => CelulaService;
+  public celulas: ICelula[] = [];
 
+  @Inject('personaService') private personaService: () => PersonaService;
   public personas: IPersona[] = [];
 
   @Inject('rolService') private rolService: () => RolService;
@@ -98,6 +103,11 @@ export default class ParticipacionUpdate extends Vue {
       .retrieve()
       .then(res => {
         this.rols = res.data;
+      });
+    this.celulaService()
+      .retrieve()
+      .then(res => {
+        this.celulas = res.data;
       });
   }
 }

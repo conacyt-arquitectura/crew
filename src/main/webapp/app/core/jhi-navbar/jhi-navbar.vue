@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" class="jh-navbar">
+  <b-navbar toggleable="md" type="dark" class="jh-navbar" fixed="top">
     <b-navbar-brand class="logo" b-link to="/">
       <b-avatar size="sm" text="C" variant="success"></b-avatar>
       <span v-text="$t('global.title')" class="navbar-title">crew</span> <span class="navbar-version">{{ version }}</span>
@@ -30,15 +30,15 @@
             <span v-text="$t('global.menu.entities.main')">Entities</span>
           </span>
           <b-dropdown-item to="/proyecto">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="route" />
             <span v-text="$t('global.menu.entities.proyecto')">Proyecto</span>
           </b-dropdown-item>
           <b-dropdown-item to="/persona">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="address-book" />
             <span v-text="$t('global.menu.entities.persona')">Persona</span>
           </b-dropdown-item>
           <b-dropdown-item to="/celula">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="users" />
             <span v-text="$t('global.menu.entities.celula')">Celula</span>
           </b-dropdown-item>
           <b-dropdown-item to="/participacion">
@@ -46,19 +46,19 @@
             <span v-text="$t('global.menu.entities.participacion')">Participacion</span>
           </b-dropdown-item>
           <b-dropdown-item to="/area">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="sitemap" />
             <span v-text="$t('global.menu.entities.area')">Area</span>
           </b-dropdown-item>
           <b-dropdown-item to="/badge">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="medal" />
             <span v-text="$t('global.menu.entities.badge')">Badge</span>
           </b-dropdown-item>
           <b-dropdown-item to="/rol">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="user-tag" />
             <span v-text="$t('global.menu.entities.rol')">Rol</span>
           </b-dropdown-item>
           <b-dropdown-item to="/plataforma">
-            <font-awesome-icon icon="asterisk" />
+            <font-awesome-icon icon="code" />
             <span v-text="$t('global.menu.entities.plataforma')">Plataforma</span>
           </b-dropdown-item>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
@@ -102,8 +102,7 @@
         </b-nav-item-dropdown>
         <b-nav-item-dropdown id="languagesnavBarDropdown" right v-if="languages && Object.keys(languages).length > 1">
           <span slot="button-content">
-            <font-awesome-icon icon="flag" />
-            <span v-text="$t('global.menu.language')">Language</span>
+            <font-awesome-icon icon="language" />
           </span>
           <b-dropdown-item
             v-for="(value, key) in languages"
@@ -127,7 +126,7 @@
             <span v-text="$t('global.menu.account.main')"> Account </span>
           </span>
           <b-dropdown-item v-if="authenticated" to="/persona/edit">
-            <font-awesome-icon icon="user" />
+            <font-awesome-icon icon="address-card" />
             <span v-text="$t('global.menu.entities.persona')">Avatar</span>
           </b-dropdown-item>
           <b-dropdown-item v-if="authenticated" to="/avatar/edit">

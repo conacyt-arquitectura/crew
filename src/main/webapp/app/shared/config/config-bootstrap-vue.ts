@@ -31,7 +31,17 @@ import {
   BTab,
   BSidebar,
   VBToggle,
-  BSpinner
+  BSpinner,
+  BFormSelect,
+  BFormSelectOption,
+  BTable,
+  BOverlay,
+  BImg,
+  BSkeleton,
+  BSkeletonImg,
+  BAspect,
+  BCarousel,
+  BCarouselSlide
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -69,4 +79,14 @@ export function initBootstrapVue(vue) {
   vue.component('b-tab', BTab);
   vue.component('b-sidebar', BSidebar);
   vue.component('b-spinner', BSpinner);
+  vue.component('b-form-select', BFormSelect);
+  vue.component('b-form-select-option', BFormSelectOption);
+  vue.component('b-table', BTable);
+  vue.component('b-overlay', BOverlay);
+  vue.component('b-img', BImg);
+  vue.component('b-skeleton', BSkeleton);
+  vue.component('b-skeleton-img', BSkeletonImg);
+  vue.component('b-aspect', BAspect);
+  vue.component('b-carousel', BCarousel);
+  vue.component('b-carousel-slide', BCarouselSlide);
 }

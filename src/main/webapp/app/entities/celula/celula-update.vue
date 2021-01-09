@@ -59,6 +59,9 @@
           </div>
         </div>
         <div>
+          <b-table striped hover :items="participantes"></b-table>
+        </div>
+        <div>
           <c-save-button :enabled="$v.celula.$invalid || isSaving" :saving="isSaving"></c-save-button>
         </div>
       </form>

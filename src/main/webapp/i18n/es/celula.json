@@ -4,7 +4,7 @@
       "home": {
         "title": "Celulas",
         "createLabel": "Crear nuevo Celula",
-        "createOrEditLabel": "Crear o editar Celula",
+        "createOrEditLabel": "Célula",
         "notFound": "Ningún Celulas encontrado"
       },
       "created": "Un nuevo Celula ha sido creado con el identificador {{ param }}",

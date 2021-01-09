@@ -37,7 +37,7 @@ import AvatarService from '@/entities/avatar/avatar.service';
 import RolService from '@/entities/rol/rol.service';
 import PlataformaService from '@/entities/plataforma/plataforma.service';
 import VueLoadImage from 'vue-load-image';
-import Avataaars from 'vuejs-avataaars'
+import Avataaars from 'vuejs-avataaars';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */

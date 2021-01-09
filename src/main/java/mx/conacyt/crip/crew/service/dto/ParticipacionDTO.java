@@ -6,14 +6,14 @@ import java.io.Serializable;
  * A DTO for the {@link mx.conacyt.crip.crew.domain.Participacion} entity.
  */
 public class ParticipacionDTO implements Serializable {
-    
     private String id;
 
+    private String celulaId;
 
     private String personaId;
 
     private String rolId;
-    
+
     public String getId() {
         return id;
     }
@@ -36,6 +36,14 @@ public class ParticipacionDTO implements Serializable {
 
     public void setRolId(String rolId) {
         this.rolId = rolId;
+    }
+
+    public String getCelulaId() {
+        return celulaId;
+    }
+
+    public void setCelulaId(String celulaId) {
+        this.celulaId = celulaId;
     }
 
     @Override
