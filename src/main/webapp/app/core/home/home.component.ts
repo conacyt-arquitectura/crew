@@ -1,11 +1,11 @@
 import Component from 'vue-class-component';
 import { Inject, Vue } from 'vue-property-decorator';
 import LoginService from '@/account/login.service';
-import OrgChart from '@/components/org-chart/org-chart.vue';
+import Info from '@/core/info/info.vue';
 
 @Component({
   components: {
-    OrgChart
+    Info
   }
 })
 export default class Home extends Vue {

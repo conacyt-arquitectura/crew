@@ -25,6 +25,11 @@
     <div class="alert alert-warning" v-if="!isFetching && areas && areas.length === 0">
       <span v-text="$t('crewApp.area.home.notFound')">No areas found</span>
     </div>
+
+    <div v-if="nodes.length > 0">
+      <OrgChart :nodes="nodes" />
+    </div>
+
     <b-table
       :striped="true"
       :borderless="false"

@@ -6,17 +6,18 @@ import java.io.Serializable;
  * A DTO for the {@link mx.conacyt.crip.crew.domain.Plataforma} entity.
  */
 public class PlataformaDTO implements Serializable {
-    
     private String id;
 
     private String nombre;
+
+    private String clave;
 
     private String color;
 
     private byte[] logo;
 
     private String logoContentType;
-    
+
     public String getId() {
         return id;
     }
@@ -57,6 +58,14 @@ public class PlataformaDTO implements Serializable {
         this.logoContentType = logoContentType;
     }
 
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -82,6 +91,7 @@ public class PlataformaDTO implements Serializable {
             ", nombre='" + getNombre() + "'" +
             ", color='" + getColor() + "'" +
             ", logo='" + getLogo() + "'" +
+            ", clave='" + getClave() + "'" +
             "}";
     }
 }

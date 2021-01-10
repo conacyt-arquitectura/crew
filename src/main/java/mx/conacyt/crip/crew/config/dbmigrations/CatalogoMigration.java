@@ -83,10 +83,10 @@ public class CatalogoMigration {
 
     @ChangeSet(order = "03", author = "arquitectura", id = "01-addPlataformas")
     public void addPlataformas(MongoTemplate mongoTemplate) {
-        Plataforma salsa = new Plataforma().color("#74bb92").nombre("SALSA");
-        Plataforma miic = new Plataforma().color("#8fc1ef").nombre("MIIC");
-        Plataforma seminuevos = new Plataforma().color("#db5757").nombre("Seminuevos");
-        Plataforma ps = new Plataforma().color("#ffe066").nombre("People Soft");
+        Plataforma salsa = new Plataforma().color("#74bb92").nombre("SALSA").clave("salsa");
+        Plataforma miic = new Plataforma().color("#8fc1ef").nombre("MIIC").clave("miic");
+        Plataforma seminuevos = new Plataforma().color("#db5757").nombre("Seminuevos").clave("seminuevos");
+        Plataforma ps = new Plataforma().color("#ffe066").nombre("People Soft").clave("peoplesoft");
         mongoTemplate.save(salsa);
         mongoTemplate.save(miic);
         mongoTemplate.save(seminuevos);

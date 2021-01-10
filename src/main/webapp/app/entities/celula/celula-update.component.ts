@@ -9,6 +9,9 @@ import AlertService from '@/shared/alert/alert.service';
 import { ICelula, Celula } from '@/shared/model/celula.model';
 import CelulaService from './celula.service';
 
+
+import PlataformaService from '../plataforma/plataforma.service';
+import { IPlataforma } from '@/shared/model/plataforma.model';
 const validations: any = {
   celula: {
     nombre: {},
@@ -23,6 +26,10 @@ export default class CelulaUpdate extends mixins(JhiDataUtils) {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('celulaService') private celulaService: () => CelulaService;
   public celula: ICelula = new Celula();
+
+  @Inject('plataformaService') private plataformaService: () => PlataformaService;
+  public plataformas: IPlataforma[] = [];
+
   public isSaving = false;
   public currentLanguage = '';
 
@@ -31,6 +38,7 @@ export default class CelulaUpdate extends mixins(JhiDataUtils) {
       if (to.params.celulaId) {
         vm.retrieveCelula(to.params.celulaId);
       }
+      vm.initRelationships();
     });
   }
 
@@ -93,5 +101,11 @@ export default class CelulaUpdate extends mixins(JhiDataUtils) {
     }
   }
 
-  public initRelationships(): void {}
+  public initRelationships(): void {
+    this.plataformaService()
+      .retrieve()
+      .then(res => {
+        this.plataformas = res.data;
+      });
+  }
 }

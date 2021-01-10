@@ -20,6 +20,15 @@
             />
           </div>
           <div class="form-group">
+            <label class="form-control-label" v-text="$t('crewApp.celula.plataforma')" for="celula-plataforma">Plataforma</label>
+            <select class="form-control" id="celula-plataforma" name="plataforma" v-model="celula.plataformaId">
+              <option v-bind:value="null"></option>
+              <option v-bind:value="plataformaOption.id" v-for="plataformaOption in plataformas" :key="plataformaOption.id">
+                {{ plataformaOption.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" v-text="$t('crewApp.celula.logo')" for="celula-logo">Logo</label>
             <div>
               <img
@@ -57,9 +66,6 @@
             />
             <input type="hidden" class="form-control" name="logoContentType" id="celula-logoContentType" v-model="celula.logoContentType" />
           </div>
-        </div>
-        <div>
-          <b-table striped hover :items="participantes"></b-table>
         </div>
         <div>
           <c-save-button :enabled="$v.celula.$invalid || isSaving" :saving="isSaving"></c-save-button>

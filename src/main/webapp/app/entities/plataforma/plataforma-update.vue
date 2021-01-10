@@ -22,9 +22,20 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-control-label" v-text="$t('crewApp.plataforma.color')" for="plataforma-color">Color</label>
+            <label class="form-control-label" v-text="$t('crewApp.plataforma.clave')" for="plataforma-clave">Clave</label>
             <input
               type="text"
+              class="form-control"
+              name="clave"
+              id="plataforma-clave"
+              :class="{ valid: !$v.plataforma.clave.$invalid, invalid: $v.plataforma.clave.$invalid }"
+              v-model="$v.plataforma.clave.$model"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('crewApp.plataforma.color')" for="plataforma-color">Color</label>
+            <input
+              type="color"
               class="form-control"
               name="color"
               id="plataforma-color"

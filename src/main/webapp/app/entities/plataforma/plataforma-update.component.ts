@@ -12,6 +12,7 @@ import PlataformaService from './plataforma.service';
 const validations: any = {
   plataforma: {
     nombre: {},
+    clave: {},
     color: {},
     logo: {},
   },
@@ -94,5 +95,5 @@ export default class PlataformaUpdate extends mixins(JhiDataUtils) {
     }
   }
 
-  public initRelationships(): void {}
+  public initRelationships(): void { }
 }

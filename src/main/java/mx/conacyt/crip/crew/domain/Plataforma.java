@@ -1,17 +1,16 @@
 package mx.conacyt.crip.crew.domain;
 
+import java.io.Serializable;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.io.Serializable;
 
 /**
  * A Plataforma.
  */
 @Document(collection = "plataforma")
 public class Plataforma implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,6 +18,10 @@ public class Plataforma implements Serializable {
 
     @Field("nombre")
     private String nombre;
+
+    @Field("clave")
+    @Indexed
+    private String clave;
 
     @Field("color")
     private String color;
@@ -89,6 +92,20 @@ public class Plataforma implements Serializable {
     public void setLogoContentType(String logoContentType) {
         this.logoContentType = logoContentType;
     }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public Plataforma clave(String clave) {
+        this.clave = clave;
+        return this;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

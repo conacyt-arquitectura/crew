@@ -31,7 +31,7 @@
           <div class="form-group">
             <label class="form-control-label" v-text="$t('crewApp.participacion.rol')" for="participacion-rol">Rol</label>
             <select class="form-control" id="participacion-rol" name="rol" v-model="participacion.rolId">
-              <option v-bind:value="null">dfdf</option>
+              <option v-bind:value="null"></option>
               <option v-bind:value="rolOption.id" v-for="rolOption in rols" :key="rolOption.id">{{ rolOption.nombre }}</option>
             </select>
           </div>

@@ -6,7 +6,6 @@ import java.io.Serializable;
  * A DTO for the {@link mx.conacyt.crip.crew.domain.Celula} entity.
  */
 public class CelulaDTO implements Serializable {
-    
     private String id;
 
     private String nombre;
@@ -14,7 +13,13 @@ public class CelulaDTO implements Serializable {
     private byte[] logo;
 
     private String logoContentType;
-    
+
+    private String plataformaId;
+
+    private String plataformaClave;
+
+    private String plataformaColor;
+
     public String getId() {
         return id;
     }
@@ -45,6 +50,30 @@ public class CelulaDTO implements Serializable {
 
     public void setLogoContentType(String logoContentType) {
         this.logoContentType = logoContentType;
+    }
+
+    public String getPlataformaClave() {
+        return plataformaClave;
+    }
+
+    public void setPlataformaClave(String plataformaClave) {
+        this.plataformaClave = plataformaClave;
+    }
+
+    public String getPlataformaColor() {
+        return plataformaColor;
+    }
+
+    public void setPlataformaColor(String plataformaColor) {
+        this.plataformaColor = plataformaColor;
+    }
+
+    public String getPlataformaId() {
+        return plataformaId;
+    }
+
+    public void setPlataformaId(String plataformaId) {
+        this.plataformaId = plataformaId;
     }
 
     @Override

@@ -21,4 +21,11 @@ export function initFilters() {
     }
     return '';
   });
+
+  Vue.filter('formatAvatarText', value => {
+    if (value) {
+      return value.charAt(0).toUpperCase();
+    }
+    return '';
+  });
 }

@@ -1,17 +1,17 @@
 package mx.conacyt.crip.crew.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.io.Serializable;
 
 /**
  * A Celula.
  */
 @Document(collection = "celula")
 public class Celula implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -25,6 +25,11 @@ public class Celula implements Serializable {
 
     @Field("logo_content_type")
     private String logoContentType;
+
+    @DBRef
+    @Field("plataforma")
+    @JsonIgnoreProperties(value = "participacions", allowSetters = true)
+    private Plataforma plataforma;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public String getId() {
@@ -73,6 +78,15 @@ public class Celula implements Serializable {
     public void setLogoContentType(String logoContentType) {
         this.logoContentType = logoContentType;
     }
+
+    public Plataforma getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

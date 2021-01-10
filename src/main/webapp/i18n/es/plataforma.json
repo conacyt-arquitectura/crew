@@ -17,6 +17,7 @@
         "title": "Plataforma"
       },
       "nombre": "Nombre",
+      "clave": "clave",
       "color": "Color",
       "logo": "Logo"
     }

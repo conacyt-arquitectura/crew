@@ -17,6 +17,7 @@
         "title": "Celula"
       },
       "nombre": "Nombre",
+      "plataforma": "Plataforma",
       "logo": "Logo"
     }
   }

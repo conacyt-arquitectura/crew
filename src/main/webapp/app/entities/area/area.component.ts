@@ -4,11 +4,15 @@ import { Component, Vue, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
 import { IArea } from '@/shared/model/area.model';
 import AlertMixin from '@/shared/alert/alert.mixin';
+import OrgChart from '@/components/org-chart/org-chart.vue';
 
 import AreaService from './area.service';
 
 @Component({
   mixins: [Vue2Filters.mixin],
+  components: {
+    OrgChart
+  }
 })
 export default class Area extends mixins(AlertMixin) {
   @Inject('areaService') private areaService: () => AreaService;
@@ -24,6 +28,7 @@ export default class Area extends mixins(AlertMixin) {
   public areas: IArea[] = [];
 
   public isFetching = false;
+  public nodes = [];
 
   public mounted(): void {
     this.retrieveAllAreas();
@@ -49,6 +54,11 @@ export default class Area extends mixins(AlertMixin) {
           this.areas = res.data;
           this.totalItems = Number(res.headers['x-total-count']);
           this.queryCount = this.totalItems;
+          this.areas.forEach(area => {
+            this.nodes.push(
+              { id: area.id, pid: area.areaId, name: area.responsable }
+            )
+          })
           this.isFetching = false;
         },
         err => {
