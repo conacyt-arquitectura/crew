@@ -45,7 +45,21 @@
       </template>
 
       <template #cell(logo)="data">
+        <a v-if="data.item.logo">
+          <b-avatar
+            badge-variant="custom"
+            badge-offset="-0.5em"
+            :style="{ 'background-color': data.item.plataformaColor }"
+            v-bind:src="'data:' + data.item.logoContentType + ';base64,' + data.item.logo"
+            size="lg"
+          >
+            <template #badge>
+              {{ data.item.plataformaClave | formatAvatarText }}
+            </template>
+          </b-avatar>
+        </a>
         <b-avatar
+          v-else
           :text="data.item.plataformaClave | formatAvatarText"
           :style="{ 'background-color': data.item.plataformaColor }"
           size="lg"
