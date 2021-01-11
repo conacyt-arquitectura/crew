@@ -25,7 +25,6 @@
     <div class="alert alert-warning" v-if="!isFetching && plataformas && plataformas.length === 0">
       <span v-text="$t('crewApp.plataforma.home.notFound')">No plataformas found</span>
     </div>
-
     <b-table
       :striped="false"
       :borderless="true"
@@ -36,7 +35,7 @@
       :fixed="false"
       head-variant="light"
       :items="plataformas"
-      :fields="['color', 'nombre', 'acciones']"
+      :fields="['logo', 'nombre', 'acciones']"
     >
       <template #table-busy>
         <div class="text-center text-danger my-2">
@@ -45,8 +44,10 @@
         </div>
       </template>
 
-      <template #cell(color)="data">
-        <b-avatar :text="data.item.nombre | formatAvatarText" :style="{ 'background-color': data.item.color }" size="sm"></b-avatar>
+      <template #cell(logo)="data">
+        <a v-if="data.item.logo" v-on:click="openFile(data.item.logoContentType, data.item.logo)">
+          <img v-bind:src="'data:' + data.item.logoContentType + ';base64,' + data.item.logo" style="max-height: 30px" alt="rol image" />
+        </a>
       </template>
 
       <template #cell(acciones)="row">

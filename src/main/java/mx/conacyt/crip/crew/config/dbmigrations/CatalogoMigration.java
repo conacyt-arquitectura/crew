@@ -63,14 +63,14 @@ public class CatalogoMigration {
 
     @ChangeSet(order = "02", author = "arquitectura", id = "01-addRoles")
     public void addRoles(MongoTemplate mongoTemplate) {
-        Rol ap = new Rol().clave("AP").nombre("Administrador");
-        Rol arquitecto = new Rol().clave("ARQ").nombre("Arquitecto");
-        Rol analista = new Rol().clave("ARQ").nombre("Analista");
-        Rol desarrollador = new Rol().clave("DEV").nombre("Desarrollador");
-        Rol lider = new Rol().clave("DEV").nombre("Líder");
-        Rol tester = new Rol().clave("QA").nombre("Tester");
-        Rol ux = new Rol().clave("UX").nombre("UX");
-        Rol soporte = new Rol().clave("SO").nombre("Soporte");
+        Rol ap = new Rol().clave("administrador").nombre("Administrador");
+        Rol arquitecto = new Rol().clave("arquitecto").nombre("Arquitecto");
+        Rol analista = new Rol().clave("analista").nombre("Analista");
+        Rol desarrollador = new Rol().clave("dev").nombre("Desarrollador");
+        Rol lider = new Rol().clave("lider").nombre("Líder");
+        Rol tester = new Rol().clave("qa").nombre("Tester");
+        Rol ux = new Rol().clave("ux").nombre("UX");
+        Rol soporte = new Rol().clave("soporte").nombre("Soporte");
         mongoTemplate.save(ap);
         mongoTemplate.save(arquitecto);
         mongoTemplate.save(analista);
@@ -87,10 +87,12 @@ public class CatalogoMigration {
         Plataforma miic = new Plataforma().color("#8fc1ef").nombre("MIIC").clave("miic");
         Plataforma seminuevos = new Plataforma().color("#db5757").nombre("Seminuevos").clave("seminuevos");
         Plataforma ps = new Plataforma().color("#ffe066").nombre("People Soft").clave("peoplesoft");
+        Plataforma soporte = new Plataforma().color("#ced4da").nombre("Soporte").clave("soporte");
         mongoTemplate.save(salsa);
         mongoTemplate.save(miic);
         mongoTemplate.save(seminuevos);
         mongoTemplate.save(ps);
+        mongoTemplate.save(soporte);
     }
 
     @ChangeSet(order = "04", author = "arquitectura", id = "01-addCelulas")

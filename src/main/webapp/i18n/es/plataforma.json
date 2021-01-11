@@ -3,8 +3,8 @@
     "plataforma": {
       "home": {
         "title": "Plataformas",
-        "createLabel": "Crear nuevo Plataforma",
-        "createOrEditLabel": "Crear o editar Plataforma",
+        "createLabel": "Agregar plataforma",
+        "createOrEditLabel": "Plataforma",
         "notFound": "Ningún Plataformas encontrado"
       },
       "created": "Un nuevo Plataforma ha sido creado con el identificador {{ param }}",
@@ -17,7 +17,7 @@
         "title": "Plataforma"
       },
       "nombre": "Nombre",
-      "clave": "clave",
+      "clave": "Clave",
       "color": "Color",
       "logo": "Logo"
     }

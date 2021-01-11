@@ -2,9 +2,9 @@
   "crewApp": {
     "plataforma": {
       "home": {
-        "title": "Plataformas",
-        "createLabel": "Create a new Plataforma",
-        "createOrEditLabel": "Create or edit a Plataforma",
+        "title": "Platforms",
+        "createLabel": "Add Platform",
+        "createOrEditLabel": "Platform",
         "notFound": "No Plataformas found"
       },
       "created": "A new Plataforma is created with identifier {{ param }}",
@@ -16,9 +16,9 @@
       "detail": {
         "title": "Platform"
       },
-      "nombre": "name",
-      "clave": "key",
-      "color": "color",
+      "nombre": "Name",
+      "clave": "Key",
+      "color": "Color",
       "logo": "Logo"
     }
   }
