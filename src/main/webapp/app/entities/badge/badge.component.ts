@@ -86,9 +86,7 @@ export default class Badge extends mixins(JhiDataUtils, AlertMixin) {
 
   public prepareRemove(instance: IBadge): void {
     this.removeId = instance.id;
-    if (<any>this.$refs.removeEntity) {
-      (<any>this.$refs.removeEntity).show();
-    }
+    this.$bvModal.show('removeEntity');
   }
 
   public removeBadge(): void {
@@ -137,6 +135,6 @@ export default class Badge extends mixins(JhiDataUtils, AlertMixin) {
   }
 
   public closeDialog(): void {
-    (<any>this.$refs.removeEntity).hide();
+    this.$bvModal.hide('removeEntity');
   }
 }

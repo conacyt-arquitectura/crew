@@ -49,51 +49,16 @@
           <img v-bind:src="'data:' + data.item.logoContentType + ';base64,' + data.item.logo" style="max-height: 30px" alt="rol image" />
         </a>
       </template>
-
       <template #cell(acciones)="row">
-        <div class="btn-group">
-          <router-link
-            :to="{ name: 'PlataformaView', params: { plataformaId: row.item.id } }"
-            tag="button"
-            class="btn btn-outline-info btn-sm details"
-          >
-            <font-awesome-icon icon="eye"></font-awesome-icon>
-          </router-link>
-          <router-link
-            :to="{ name: 'PlataformaEdit', params: { plataformaId: row.item.id } }"
-            tag="button"
-            class="btn btn-outline-primary btn-sm edit"
-          >
-            <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-          </router-link>
-          <b-button v-on:click="prepareRemove(row.item)" variant="outline-danger" class="btn btn-sm" v-b-modal.removeEntity>
-            <font-awesome-icon icon="times"></font-awesome-icon>
-          </b-button>
-        </div>
+        <c-action-buttons
+          :params="{ plataformaId: row.item.id }"
+          editView="PlataformaEdit"
+          detailsView="PlataformaView"
+          @onCancel="prepareRemove(row.item)"
+        />
       </template>
     </b-table>
-    <b-modal ref="removeEntity" id="removeEntity">
-      <span slot="modal-title"
-        ><span id="crewApp.plataforma.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span
-      >
-      <div class="modal-body">
-        <p id="jhi-delete-plataforma-heading" v-text="$t('crewApp.plataforma.delete.question', { id: removeId })">
-          Are you sure you want to delete this Plataforma?
-        </p>
-      </div>
-      <div slot="modal-footer">
-        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="jhi-confirm-delete-plataforma"
-          v-text="$t('entity.action.delete')"
-          v-on:click="removePlataforma()"
-        >
-          Delete
-        </button>
-      </div>
-    </b-modal>
+    <c-delete-modal id="removeEntity" @onDelete="removePlataforma()" />
     <div v-show="plataformas && plataformas.length > 0">
       <div class="row justify-content-center">
         <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
