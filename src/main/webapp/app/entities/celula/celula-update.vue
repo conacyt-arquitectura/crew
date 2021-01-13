@@ -68,7 +68,7 @@
           </div>
         </div>
         <div>
-          <c-save-button :enabled="$v.celula.$invalid || isSaving" :saving="isSaving"></c-save-button>
+          <c-dual-button :enabled="$v.celula.$invalid || isSaving" :saving="isSaving"></c-dual-button>
         </div>
       </form>
     </div>

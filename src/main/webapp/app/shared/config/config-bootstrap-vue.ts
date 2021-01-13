@@ -41,7 +41,8 @@ import {
   BSkeletonImg,
   BAspect,
   BCarousel,
-  BCarouselSlide
+  BCarouselSlide,
+  ModalPlugin
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -50,7 +51,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-dropdown-item', BDropdownItem);
   vue.component('b-link', BLink);
   vue.component('b-alert', BAlert);
-  vue.component('b-modal', BModal);
   vue.component('b-button', BButton);
   vue.component('b-navbar', BNavbar);
   vue.component('b-navbar-nav', BNavbarNav);
@@ -68,6 +68,8 @@ export function initBootstrapVue(vue) {
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
   vue.component('b-modal', BModal);
   vue.directive('b-modal', VBModal);
+  vue.use(ModalPlugin);
+  vue.directive('b-toggle', VBToggle);
   vue.directive('b-toggle', VBToggle);
   vue.component('b-form-datepicker', BFormDatepicker);
   vue.component('b-input-group', BInputGroup);

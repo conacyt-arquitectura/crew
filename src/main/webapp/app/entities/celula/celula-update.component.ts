@@ -83,10 +83,6 @@ export default class CelulaUpdate extends mixins(JhiDataUtils) {
       });
   }
 
-  public previousState(): void {
-    this.$router.go(-1);
-  }
-
   public clearInputImage(field, fieldContentType, idInput): void {
     if (this.celula && field && fieldContentType) {
       if (this.celula.hasOwnProperty(field)) {

@@ -61,9 +61,7 @@ export default class Celula extends mixins(JhiDataUtils, AlertMixin) {
 
   public prepareRemove(instance: ICelula): void {
     this.removeId = instance.id;
-    if (<any>this.$refs.removeEntity) {
-      (<any>this.$refs.removeEntity).show();
-    }
+    this.$bvModal.show('removeEntity');
   }
 
   public removeCelula(): void {
@@ -77,6 +75,10 @@ export default class Celula extends mixins(JhiDataUtils, AlertMixin) {
         this.retrieveAllCelulas();
         this.closeDialog();
       });
+  }
+
+  public closeDialog(): void {
+    this.$bvModal.hide('removeEntity');
   }
 
   public sort(): Array<any> {
@@ -102,9 +104,5 @@ export default class Celula extends mixins(JhiDataUtils, AlertMixin) {
     this.propOrder = propOrder;
     this.reverse = !this.reverse;
     this.transition();
-  }
-
-  public closeDialog(): void {
-    (<any>this.$refs.removeEntity).hide();
   }
 }

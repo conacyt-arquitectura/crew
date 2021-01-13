@@ -114,7 +114,8 @@
       "value": "Value"
     },
     "delete": {
-      "title": "Confirm delete operation"
+      "title": "Confirm delete operation",
+      "question": "Are you sure you want to delete this element"
     },
     "validation": {
       "required": "This field is required.",

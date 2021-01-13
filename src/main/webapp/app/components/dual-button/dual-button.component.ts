@@ -9,4 +9,7 @@ export default class DualButtonComponent extends Vue {
     @Prop()
     enabled: boolean;
 
+    public previousState(): void {
+        this.$router.go(-1);
+    }
 }

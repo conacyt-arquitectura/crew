@@ -1,0 +1,24 @@
+administración de celulas
+    listar celulas
+    crear / actualizar / ver detalle una celula
+    eliminar una celula
+administración de personas
+    actualizar datos personales
+    crear / actualizar avatar / ver detalle
+administración de medallas
+    listar medallas
+    crear / actualizar / ver detalle una medallas
+    eliminar una celula
+administración de roles
+    listar roles
+    crear / actualizar  / ver detalle un rol
+    eliminar un rol
+administración de areas
+    listar areas
+    crear / actualizar  / ver detalle un area
+    eliminar un area
+administración de proyectos
+    listar proyectos
+    crear / actualizar / ver detalleun proyecto
+    eliminar un proyecto
+
