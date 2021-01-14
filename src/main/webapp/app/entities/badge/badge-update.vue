@@ -81,7 +81,7 @@
           </div>
         </div>
         <div>
-          <c-save-button :enabled="$v.badge.$invalid || isSaving" :saving="isSaving"></c-save-button>
+          <c-dual-button :enabled="$v.badge.$invalid || isSaving" :saving="isSaving"></c-dual-button>
         </div>
       </form>
     </div>
