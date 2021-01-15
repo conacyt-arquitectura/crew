@@ -1,12 +1,15 @@
 package mx.conacyt.crip.crew.web.rest;
 
-import mx.conacyt.crip.crew.service.ParticipacionService;
-import mx.conacyt.crip.crew.web.rest.errors.BadRequestAlertException;
-import mx.conacyt.crip.crew.service.dto.ParticipacionDTO;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import mx.conacyt.crip.crew.service.ParticipacionService;
+import mx.conacyt.crip.crew.service.dto.ParticipacionDTO;
+import mx.conacyt.crip.crew.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,14 +17,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  * REST controller for managing {@link mx.conacyt.crip.crew.domain.Participacion}.
@@ -29,7 +27,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class ParticipacionResource {
-
     private final Logger log = LoggerFactory.getLogger(ParticipacionResource.class);
 
     private static final String ENTITY_NAME = "participacion";
@@ -57,7 +54,8 @@ public class ParticipacionResource {
             throw new BadRequestAlertException("A new participacion cannot already have an ID", ENTITY_NAME, "idexists");
         }
         ParticipacionDTO result = participacionService.save(participacionDTO);
-        return ResponseEntity.created(new URI("/api/participacions/" + result.getId()))
+        return ResponseEntity
+            .created(new URI("/api/participacions/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId()))
             .body(result);
     }
@@ -78,7 +76,8 @@ public class ParticipacionResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         ParticipacionDTO result = participacionService.save(participacionDTO);
-        return ResponseEntity.ok()
+        return ResponseEntity
+            .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, participacionDTO.getId()))
             .body(result);
     }
@@ -90,9 +89,9 @@ public class ParticipacionResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of participacions in body.
      */
     @GetMapping("/participacions")
-    public ResponseEntity<List<ParticipacionDTO>> getAllParticipacions(Pageable pageable) {
+    public ResponseEntity<List<ParticipacionDTO>> getAllParticipacions(Pageable pageable, @RequestParam("celulaId") String celulaId) {
         log.debug("REST request to get a page of Participacions");
-        Page<ParticipacionDTO> page = participacionService.findAll(pageable);
+        Page<ParticipacionDTO> page = participacionService.findAll(celulaId, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

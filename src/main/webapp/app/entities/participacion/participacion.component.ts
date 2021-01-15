@@ -5,6 +5,9 @@ import Vue2Filters from 'vue2-filters';
 import { IParticipacion } from '@/shared/model/participacion.model';
 import AlertMixin from '@/shared/alert/alert.mixin';
 
+import CelulaService from '../celula/celula.service';
+import { ICelula } from '@/shared/model/celula.model';
+
 import ParticipacionService from './participacion.service';
 
 @Component({
@@ -12,6 +15,10 @@ import ParticipacionService from './participacion.service';
 })
 export default class Participacion extends mixins(AlertMixin) {
   @Inject('participacionService') private participacionService: () => ParticipacionService;
+  @Inject('celulaService') private celulaService: () => CelulaService;
+
+  public celulas: ICelula[] = [];
+  public celulaId: string;
   private removeId: string = null;
   public itemsPerPage = 20;
   public queryCount: number = null;
@@ -26,7 +33,11 @@ export default class Participacion extends mixins(AlertMixin) {
   public isFetching = false;
 
   public mounted(): void {
-    this.retrieveAllParticipacions();
+    this.celulaService()
+      .retrieve()
+      .then(res => {
+        this.celulas = res.data;
+      });
   }
 
   public clear(): void {
@@ -41,6 +52,7 @@ export default class Participacion extends mixins(AlertMixin) {
       page: this.page - 1,
       size: this.itemsPerPage,
       sort: this.sort(),
+      celulaId: this.celulaId,
     };
     this.participacionService()
       .retrieve(paginationQuery)
@@ -59,9 +71,7 @@ export default class Participacion extends mixins(AlertMixin) {
 
   public prepareRemove(instance: IParticipacion): void {
     this.removeId = instance.id;
-    if (<any>this.$refs.removeEntity) {
-      (<any>this.$refs.removeEntity).show();
-    }
+    this.$bvModal.show('removeEntity');
   }
 
   public removeParticipacion(): void {
@@ -103,6 +113,6 @@ export default class Participacion extends mixins(AlertMixin) {
   }
 
   public closeDialog(): void {
-    (<any>this.$refs.removeEntity).hide();
+    this.$bvModal.hide('removeEntity');
   }
 }

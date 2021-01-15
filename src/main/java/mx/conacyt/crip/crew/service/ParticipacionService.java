@@ -1,17 +1,14 @@
 package mx.conacyt.crip.crew.service;
 
+import java.util.Optional;
 import mx.conacyt.crip.crew.service.dto.ParticipacionDTO;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.Optional;
 
 /**
  * Service Interface for managing {@link mx.conacyt.crip.crew.domain.Participacion}.
  */
 public interface ParticipacionService {
-
     /**
      * Save a participacion.
      *
@@ -26,8 +23,7 @@ public interface ParticipacionService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<ParticipacionDTO> findAll(Pageable pageable);
-
+    Page<ParticipacionDTO> findAll(String celulaId, Pageable pageable);
 
     /**
      * Get the "id" participacion.
