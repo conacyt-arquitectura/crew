@@ -1,5 +1,5 @@
 <template>
-  <b-modal :id="id">
+  <b-modal header-bg-variant="dark" body-bg-variant="light" header-text-variant="white" :id="id">
     <span slot="modal-title"><span id="crewApp.delete.title" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
     <div class="modal-body">
       <p id="jhi-delete-celula-heading" v-text="$t('entity.delete.question')">Are you sure you want to delete this Celula?</p>

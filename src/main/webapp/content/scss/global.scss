@@ -259,3 +259,80 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+/*
+  * ALERTAS
+  * --------------------------------------------------
+  */
+.alert {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.alert.alert-success {
+  border-left-color: #155724;
+}
+.alert.alert-success::before {
+  background-color: #155724;
+}
+.alert.alert-info {
+  border-left-color: #4d92df;
+}
+.alert.alert-info::before {
+  background-color: #4d92df;
+}
+.alert.alert-warning {
+  border-left-color: #ffa500;
+}
+.alert.alert-warning::before {
+  background-color: #ffa500;
+}
+.alert.alert-danger {
+  border-left-color: #d0021b;
+}
+.alert.alert-danger::before {
+  background-color: #d0021b;
+}
+.alert.alert-warning::before,
+.alert.alert-danger::before {
+  content: '!';
+}
+.alert.alert-success::before,
+.alert.alert-info::before {
+  content: 'i';
+}
+.alert::before {
+  position: absolute;
+  top: 14px;
+  left: -12px;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 12px;
+}
+/*
+ * CARD
+ * --------------------------------------------------
+ */
+.card-shadow {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.card--golden-border {
+  border-left-width: thick;
+  border-left-color: #d4c19c;
+}
+.card-bx-title {
+  height: 54px;
+}
+.card-header-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+.card-number {
+  font-size: 1.125rem;
+  color: #404041;
+}

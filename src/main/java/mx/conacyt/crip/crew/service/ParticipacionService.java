@@ -23,6 +23,14 @@ public interface ParticipacionService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
+    Page<ParticipacionDTO> findAll(Pageable pageable);
+
+    /**
+     * Get all the participacions.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
     Page<ParticipacionDTO> findAll(String celulaId, Pageable pageable);
 
     /**

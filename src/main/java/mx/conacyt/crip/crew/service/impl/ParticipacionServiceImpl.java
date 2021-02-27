@@ -37,9 +37,15 @@ public class ParticipacionServiceImpl implements ParticipacionService {
     }
 
     @Override
+    public Page<ParticipacionDTO> findAll(Pageable pageable) {
+        log.debug("Request to get all Participacions");
+        return participacionRepository.findAll(pageable).map(participacionMapper::toDto);
+    }
+
+    @Override
     public Page<ParticipacionDTO> findAll(String celulaId, Pageable pageable) {
         log.debug("Request to get all Participacions");
-        return participacionRepository.findAllByCelula(celulaId, pageable).map(participacionMapper::toDto);
+        return participacionRepository.findAll(pageable).map(participacionMapper::toDto);
     }
 
     @Override
