@@ -12,6 +12,7 @@
     <ribbon></ribbon>
     <div id="app-header">
       <jhi-navbar></jhi-navbar>
+      <jhi-sidebar></jhi-sidebar>
     </div>
     <div class="container-fluid">
       <div class="card jh-card">
