@@ -3,10 +3,9 @@ package mx.conacyt.crip.crew.service.dto;
 import java.io.Serializable;
 
 /**
- * A DTO for the {@link mx.conacyt.crip.crew.domain.Proyecto} entity.
+ * A DTO for the {@link mx.conacyt.crip.crew.domain.Asunto} entity.
  */
-public class ProyectoDTO implements Serializable {
-    
+public class AsuntoDTO implements Serializable {
     private String id;
 
     private String nombre;
@@ -22,7 +21,7 @@ public class ProyectoDTO implements Serializable {
     private String plataformaId;
 
     private String areaId;
-    
+
     public String getId() {
         return id;
     }
@@ -92,11 +91,11 @@ public class ProyectoDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ProyectoDTO)) {
+        if (!(o instanceof AsuntoDTO)) {
             return false;
         }
 
-        return id != null && id.equals(((ProyectoDTO) o).id);
+        return id != null && id.equals(((AsuntoDTO) o).id);
     }
 
     @Override
@@ -107,7 +106,7 @@ public class ProyectoDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "ProyectoDTO{" +
+        return "AsuntoDTO{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", clave='" + getClave() + "'" +

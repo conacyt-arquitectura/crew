@@ -17,8 +17,8 @@ administración de areas
     listar areas
     crear / actualizar  / ver detalle un area
     eliminar un area
-administración de proyectos
-    listar proyectos
-    crear / actualizar / ver detalleun proyecto
-    eliminar un proyecto
+administración de asuntos
+    listar asuntos
+    crear / actualizar / ver detalleun asunto
+    eliminar un asunto
 

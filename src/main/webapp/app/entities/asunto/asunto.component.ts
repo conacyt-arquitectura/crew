@@ -2,18 +2,18 @@ import { mixins } from 'vue-class-component';
 
 import { Component, Vue, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
-import { IProyecto } from '@/shared/model/proyecto.model';
+import { IAsunto } from '@/shared/model/asunto.model';
 import AlertMixin from '@/shared/alert/alert.mixin';
 
 import JhiDataUtils from '@/shared/data/data-utils.service';
 
-import ProyectoService from './proyecto.service';
+import AsuntoService from './asunto.service';
 
 @Component({
   mixins: [Vue2Filters.mixin],
 })
-export default class Proyecto extends mixins(JhiDataUtils, AlertMixin) {
-  @Inject('proyectoService') private proyectoService: () => ProyectoService;
+export default class Asunto extends mixins(JhiDataUtils, AlertMixin) {
+  @Inject('asuntoService') private asuntoService: () => AsuntoService;
   private removeId: string = null;
   public itemsPerPage = 20;
   public queryCount: number = null;
@@ -25,30 +25,30 @@ export default class Proyecto extends mixins(JhiDataUtils, AlertMixin) {
   public infiniteId = +new Date();
   public links = {};
 
-  public proyectos: IProyecto[] = [];
+  public asuntos: IAsunto[] = [];
 
   public isFetching = false;
 
   public mounted(): void {
-    this.retrieveAllProyectos();
+    this.retrieveAllAsuntos();
   }
 
   public clear(): void {
     this.page = 1;
     this.links = {};
     this.infiniteId += 1;
-    this.proyectos = [];
-    this.retrieveAllProyectos();
+    this.asuntos = [];
+    this.retrieveAllAsuntos();
   }
 
   public reset(): void {
     this.page = 1;
     this.infiniteId += 1;
-    this.proyectos = [];
-    this.retrieveAllProyectos();
+    this.asuntos = [];
+    this.retrieveAllAsuntos();
   }
 
-  public retrieveAllProyectos(): void {
+  public retrieveAllAsuntos(): void {
     this.isFetching = true;
 
     const paginationQuery = {
@@ -56,13 +56,13 @@ export default class Proyecto extends mixins(JhiDataUtils, AlertMixin) {
       size: this.itemsPerPage,
       sort: this.sort(),
     };
-    this.proyectoService()
+    this.asuntoService()
       .retrieve(paginationQuery)
       .then(
         res => {
           if (res.data && res.data.length > 0) {
             for (let i = 0; i < res.data.length; i++) {
-              this.proyectos.push(res.data[i]);
+              this.asuntos.push(res.data[i]);
             }
             if (res.headers && res.headers['link']) {
               this.links = this.parseLinks(res.headers['link']);
@@ -84,18 +84,18 @@ export default class Proyecto extends mixins(JhiDataUtils, AlertMixin) {
       );
   }
 
-  public prepareRemove(instance: IProyecto): void {
+  public prepareRemove(instance: IAsunto): void {
     this.removeId = instance.id;
     if (<any>this.$refs.removeEntity) {
       (<any>this.$refs.removeEntity).show();
     }
   }
 
-  public removeProyecto(): void {
-    this.proyectoService()
+  public removeAsunto(): void {
+    this.asuntoService()
       .delete(this.removeId)
       .then(() => {
-        const message = this.$t('crewApp.proyecto.deleted', { param: this.removeId });
+        const message = this.$t('crewApp.asunto.deleted', { param: this.removeId });
         this.alertService().showAlert(message, 'danger');
         this.getAlertFromStore();
         this.removeId = null;
@@ -127,7 +127,7 @@ export default class Proyecto extends mixins(JhiDataUtils, AlertMixin) {
   }
 
   public transition(): void {
-    this.retrieveAllProyectos();
+    this.retrieveAllAsuntos();
   }
 
   public changeOrder(propOrder): void {

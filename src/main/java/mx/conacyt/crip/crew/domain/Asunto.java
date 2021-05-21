@@ -1,19 +1,17 @@
 package mx.conacyt.crip.crew.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
-import java.io.Serializable;
 
 /**
- * A Proyecto.
+ * A Asunto.
  */
-@Document(collection = "proyecto")
-public class Proyecto implements Serializable {
-
+@Document(collection = "asuntos")
+public class Asunto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -33,17 +31,17 @@ public class Proyecto implements Serializable {
 
     @DBRef
     @Field("celula")
-    @JsonIgnoreProperties(value = "proyectos", allowSetters = true)
+    @JsonIgnoreProperties(value = "Asuntos", allowSetters = true)
     private Celula celula;
 
     @DBRef
     @Field("plataforma")
-    @JsonIgnoreProperties(value = "proyectos", allowSetters = true)
+    @JsonIgnoreProperties(value = "Asuntos", allowSetters = true)
     private Plataforma plataforma;
 
     @DBRef
     @Field("area")
-    @JsonIgnoreProperties(value = "proyectos", allowSetters = true)
+    @JsonIgnoreProperties(value = "Asuntos", allowSetters = true)
     private Area area;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -59,7 +57,7 @@ public class Proyecto implements Serializable {
         return nombre;
     }
 
-    public Proyecto nombre(String nombre) {
+    public Asunto nombre(String nombre) {
         this.nombre = nombre;
         return this;
     }
@@ -72,7 +70,7 @@ public class Proyecto implements Serializable {
         return clave;
     }
 
-    public Proyecto clave(String clave) {
+    public Asunto clave(String clave) {
         this.clave = clave;
         return this;
     }
@@ -85,7 +83,7 @@ public class Proyecto implements Serializable {
         return logo;
     }
 
-    public Proyecto logo(byte[] logo) {
+    public Asunto logo(byte[] logo) {
         this.logo = logo;
         return this;
     }
@@ -98,7 +96,7 @@ public class Proyecto implements Serializable {
         return logoContentType;
     }
 
-    public Proyecto logoContentType(String logoContentType) {
+    public Asunto logoContentType(String logoContentType) {
         this.logoContentType = logoContentType;
         return this;
     }
@@ -111,7 +109,7 @@ public class Proyecto implements Serializable {
         return celula;
     }
 
-    public Proyecto celula(Celula celula) {
+    public Asunto celula(Celula celula) {
         this.celula = celula;
         return this;
     }
@@ -124,7 +122,7 @@ public class Proyecto implements Serializable {
         return plataforma;
     }
 
-    public Proyecto plataforma(Plataforma plataforma) {
+    public Asunto plataforma(Plataforma plataforma) {
         this.plataforma = plataforma;
         return this;
     }
@@ -137,7 +135,7 @@ public class Proyecto implements Serializable {
         return area;
     }
 
-    public Proyecto area(Area area) {
+    public Asunto area(Area area) {
         this.area = area;
         return this;
     }
@@ -145,6 +143,7 @@ public class Proyecto implements Serializable {
     public void setArea(Area area) {
         this.area = area;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -152,10 +151,10 @@ public class Proyecto implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Proyecto)) {
+        if (!(o instanceof Asunto)) {
             return false;
         }
-        return id != null && id.equals(((Proyecto) o).id);
+        return id != null && id.equals(((Asunto) o).id);
     }
 
     @Override
@@ -166,7 +165,7 @@ public class Proyecto implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "Proyecto{" +
+        return "Asunto{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
             ", clave='" + getClave() + "'" +

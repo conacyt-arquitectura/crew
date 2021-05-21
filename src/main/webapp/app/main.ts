@@ -27,7 +27,7 @@ import ConfigurationService from '@/admin/configuration/configuration.service';
 
 /* tslint:disable */
 
-import ProyectoService from '@/entities/proyecto/proyecto.service';
+import AsuntoService from '@/entities/asunto/asunto.service';
 import CelulaService from '@/entities/celula/celula.service';
 import ParticipacionService from '@/entities/participacion/participacion.service';
 import AreaService from '@/entities/area/area.service';
@@ -100,7 +100,7 @@ new Vue({
     metricsService: () => new MetricsService(),
     alertService: () => alertService,
     translationService: () => translationService,
-    proyectoService: () => new ProyectoService(),
+    asuntoService: () => new AsuntoService(),
     celulaService: () => new CelulaService(),
     participacionService: () => new ParticipacionService(),
     areaService: () => new AreaService(),

@@ -2,13 +2,13 @@ import axios from 'axios';
 
 import buildPaginationQueryOpts from '@/shared/sort/sorts';
 
-import { IProyecto } from '@/shared/model/proyecto.model';
+import { IAsunto } from '@/shared/model/asunto.model';
 
-const baseApiUrl = 'api/proyectos';
+const baseApiUrl = 'api/asuntos';
 
-export default class ProyectoService {
-  public find(id: string): Promise<IProyecto> {
-    return new Promise<IProyecto>((resolve, reject) => {
+export default class AsuntoService {
+  public find(id: string): Promise<IAsunto> {
+    return new Promise<IAsunto>((resolve, reject) => {
       axios
         .get(`${baseApiUrl}/${id}`)
         .then(res => {
@@ -46,8 +46,8 @@ export default class ProyectoService {
     });
   }
 
-  public create(entity: IProyecto): Promise<IProyecto> {
-    return new Promise<IProyecto>((resolve, reject) => {
+  public create(entity: IAsunto): Promise<IAsunto> {
+    return new Promise<IAsunto>((resolve, reject) => {
       axios
         .post(`${baseApiUrl}`, entity)
         .then(res => {
@@ -59,8 +59,8 @@ export default class ProyectoService {
     });
   }
 
-  public update(entity: IProyecto): Promise<IProyecto> {
-    return new Promise<IProyecto>((resolve, reject) => {
+  public update(entity: IAsunto): Promise<IAsunto> {
+    return new Promise<IAsunto>((resolve, reject) => {
       axios
         .put(`${baseApiUrl}`, entity)
         .then(res => {

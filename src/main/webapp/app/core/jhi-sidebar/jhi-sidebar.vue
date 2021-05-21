@@ -19,8 +19,8 @@
       <nav class="mb-3">
         <b-nav vertical>
           <b-nav-item active @click="hide">Active</b-nav-item>
-          <b-nav-item to="/proyecto"
-            ><font-awesome-icon icon="route" /> <span v-text="$t('global.menu.entities.proyecto')">Proyecto</span></b-nav-item
+          <b-nav-item to="/asunto"
+            ><font-awesome-icon icon="route" /> <span v-text="$t('global.menu.entities.asunto')">Asunto</span></b-nav-item
           >
         </b-nav>
       </nav>
@@ -31,9 +31,9 @@
           </router-link>
         </h1>
 
-        <b-dropdown-item to="/proyecto">
+        <b-dropdown-item to="/asunto">
           <font-awesome-icon icon="route" />
-          <span v-text="$t('global.menu.entities.proyecto')">Proyecto</span>
+          <span v-text="$t('global.menu.entities.asunto')">Asunto</span>
         </b-dropdown-item>
         <ul class="list-unstyled components mb-5">
           <li v-if="authenticated" class="active">

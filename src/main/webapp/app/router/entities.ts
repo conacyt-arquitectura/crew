@@ -3,11 +3,11 @@ import { Authority } from '@/shared/security/authority';
 // prettier-ignore
 
 // prettier-ignore
-const Proyecto = () => import('@/entities/proyecto/proyecto.vue');
+const Asunto = () => import('@/entities/asunto/asunto.vue');
 // prettier-ignore
-const ProyectoUpdate = () => import('@/entities/proyecto/proyecto-update.vue');
+const AsuntoUpdate = () => import('@/entities/asunto/asunto-update.vue');
 // prettier-ignore
-const ProyectoDetails = () => import('@/entities/proyecto/proyecto-details.vue');
+const AsuntoDetails = () => import('@/entities/asunto/asunto-details.vue');
 // prettier-ignore
 const Celula = () => import('@/entities/celula/celula.vue');
 // prettier-ignore
@@ -60,27 +60,27 @@ const PlataformaDetails = () => import('@/entities/plataforma/plataforma-details
 
 export default [
   {
-    path: '/proyecto',
-    name: 'Proyecto',
-    component: Proyecto,
+    path: '/asunto',
+    name: 'Asunto',
+    component: Asunto,
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/proyecto/new',
-    name: 'ProyectoCreate',
-    component: ProyectoUpdate,
+    path: '/asunto/new',
+    name: 'AsuntoCreate',
+    component: AsuntoUpdate,
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/proyecto/:proyectoId/edit',
-    name: 'ProyectoEdit',
-    component: ProyectoUpdate,
+    path: '/asunto/:asuntoId/edit',
+    name: 'AsuntoEdit',
+    component: AsuntoUpdate,
     meta: { authorities: [Authority.USER] },
   },
   {
-    path: '/proyecto/:proyectoId/view',
-    name: 'ProyectoView',
-    component: ProyectoDetails,
+    path: '/asunto/:asuntoId/view',
+    name: 'AsuntoView',
+    component: AsuntoDetails,
     meta: { authorities: [Authority.USER] },
   },
   {

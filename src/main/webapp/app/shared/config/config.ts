@@ -50,6 +50,7 @@ import { faRoute } from '@fortawesome/free-solid-svg-icons/faRoute';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
 import { faUserTag } from '@fortawesome/free-solid-svg-icons/faUserTag';
 import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
+import { faFolderPlus } from '@fortawesome/free-solid-svg-icons/faFolderPlus';
 
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
@@ -169,7 +170,8 @@ export function initFortAwesome(vue) {
     faRoute,
     faLanguage,
     faUserTag,
-    faCode
+    faCode,
+    faFolderPlus
   );
 }
 

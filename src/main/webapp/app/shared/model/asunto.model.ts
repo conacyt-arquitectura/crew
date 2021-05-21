@@ -1,4 +1,4 @@
-export interface IProyecto {
+export interface IAsunto {
   id?: string;
   nombre?: string;
   clave?: string;
@@ -9,7 +9,7 @@ export interface IProyecto {
   areaId?: string;
 }
 
-export class Proyecto implements IProyecto {
+export class Asunto implements IAsunto {
   constructor(
     public id?: string,
     public nombre?: string,
@@ -19,5 +19,5 @@ export class Proyecto implements IProyecto {
     public celulaId?: string,
     public plataformaId?: string,
     public areaId?: string
-  ) {}
+  ) { }
 }

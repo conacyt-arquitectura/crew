@@ -1,5 +1,5 @@
 {
-  "name": "Proyecto",
+  "name": "Asunto",
   "fields": [
     {
       "fieldName": "nombre",
@@ -19,27 +19,27 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "celula",
-      "otherEntityRelationshipName": "proyecto",
+      "otherEntityRelationshipName": "asunto",
       "relationshipName": "celula",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "plataforma",
-      "otherEntityRelationshipName": "proyecto",
+      "otherEntityRelationshipName": "asunto",
       "relationshipName": "plataforma",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "area",
-      "otherEntityRelationshipName": "proyecto",
+      "otherEntityRelationshipName": "asunto",
       "relationshipName": "area",
       "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210103004249",
-  "entityTableName": "proyecto",
+  "entityTableName": "asunto",
   "dto": "mapstruct",
   "pagination": "infinite-scroll",
   "service": "serviceImpl",

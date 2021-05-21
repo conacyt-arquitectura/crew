@@ -2,9 +2,9 @@
 import axios from 'axios';
 
 import * as config from '@/shared/config/config';
-import {} from '@/shared/date/filters';
-import ProyectoService from '@/entities/proyecto/proyecto.service';
-import { Proyecto } from '@/shared/model/proyecto.model';
+import { } from '@/shared/date/filters';
+import AsuntoService from '@/entities/asunto/asunto.service';
+import { Asunto } from '@/shared/model/asunto.model';
 
 const mockedAxios: any = axios;
 const error = {
@@ -24,13 +24,13 @@ jest.mock('axios', () => ({
 }));
 
 describe('Service Tests', () => {
-  describe('Proyecto Service', () => {
-    let service: ProyectoService;
+  describe('Asunto Service', () => {
+    let service: AsuntoService;
     let elemDefault;
     beforeEach(() => {
-      service = new ProyectoService();
+      service = new AsuntoService();
 
-      elemDefault = new Proyecto('ID', 'AAAAAAA', 'AAAAAAA', 'image/png', 'AAAAAAA');
+      elemDefault = new Asunto('ID', 'AAAAAAA', 'AAAAAAA', 'image/png', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -53,7 +53,7 @@ describe('Service Tests', () => {
           });
       });
 
-      it('should create a Proyecto', async () => {
+      it('should create a Asunto', async () => {
         const returnedFromService = Object.assign(
           {
             id: 'ID',
@@ -68,7 +68,7 @@ describe('Service Tests', () => {
         });
       });
 
-      it('should not create a Proyecto', async () => {
+      it('should not create a Asunto', async () => {
         mockedAxios.post.mockReturnValue(Promise.reject(error));
 
         return service
@@ -79,7 +79,7 @@ describe('Service Tests', () => {
           });
       });
 
-      it('should update a Proyecto', async () => {
+      it('should update a Asunto', async () => {
         const returnedFromService = Object.assign(
           {
             nombre: 'BBBBBB',
@@ -97,7 +97,7 @@ describe('Service Tests', () => {
         });
       });
 
-      it('should not update a Proyecto', async () => {
+      it('should not update a Asunto', async () => {
         mockedAxios.put.mockReturnValue(Promise.reject(error));
 
         return service
@@ -108,7 +108,7 @@ describe('Service Tests', () => {
           });
       });
 
-      it('should return a list of Proyecto', async () => {
+      it('should return a list of Asunto', async () => {
         const returnedFromService = Object.assign(
           {
             nombre: 'BBBBBB',
@@ -124,7 +124,7 @@ describe('Service Tests', () => {
         });
       });
 
-      it('should not return a list of Proyecto', async () => {
+      it('should not return a list of Asunto', async () => {
         mockedAxios.get.mockReturnValue(Promise.reject(error));
 
         return service
@@ -135,14 +135,14 @@ describe('Service Tests', () => {
           });
       });
 
-      it('should delete a Proyecto', async () => {
+      it('should delete a Asunto', async () => {
         mockedAxios.delete.mockReturnValue(Promise.resolve({ ok: true }));
         return service.delete('123').then(res => {
           expect(res.ok).toBeTruthy();
         });
       });
 
-      it('should not delete a Proyecto', async () => {
+      it('should not delete a Asunto', async () => {
         mockedAxios.delete.mockReturnValue(Promise.reject(error));
 
         return service

@@ -15,11 +15,11 @@ import AreaService from '../area/area.service';
 import { IArea } from '@/shared/model/area.model';
 
 import AlertService from '@/shared/alert/alert.service';
-import { IProyecto, Proyecto } from '@/shared/model/proyecto.model';
-import ProyectoService from './proyecto.service';
+import { IAsunto, Asunto } from '@/shared/model/asunto.model';
+import AsuntoService from './asunto.service';
 
 const validations: any = {
-  proyecto: {
+  asunto: {
     nombre: {},
     clave: {},
     logo: {},
@@ -29,10 +29,10 @@ const validations: any = {
 @Component({
   validations,
 })
-export default class ProyectoUpdate extends mixins(JhiDataUtils) {
+export default class AsuntoUpdate extends mixins(JhiDataUtils) {
   @Inject('alertService') private alertService: () => AlertService;
-  @Inject('proyectoService') private proyectoService: () => ProyectoService;
-  public proyecto: IProyecto = new Proyecto();
+  @Inject('asuntoService') private asuntoService: () => AsuntoService;
+  public asunto: IAsunto = new Asunto();
 
   @Inject('celulaService') private celulaService: () => CelulaService;
 
@@ -50,8 +50,8 @@ export default class ProyectoUpdate extends mixins(JhiDataUtils) {
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      if (to.params.proyectoId) {
-        vm.retrieveProyecto(to.params.proyectoId);
+      if (to.params.asuntoId) {
+        vm.retrieveAsunto(to.params.asuntoId);
       }
       vm.initRelationships();
     });
@@ -69,32 +69,32 @@ export default class ProyectoUpdate extends mixins(JhiDataUtils) {
 
   public save(): void {
     this.isSaving = true;
-    if (this.proyecto.id) {
-      this.proyectoService()
-        .update(this.proyecto)
+    if (this.asunto.id) {
+      this.asuntoService()
+        .update(this.asunto)
         .then(param => {
           this.isSaving = false;
           this.$router.go(-1);
-          const message = this.$t('crewApp.proyecto.updated', { param: param.id });
+          const message = this.$t('crewApp.asunto.updated', { param: param.id });
           this.alertService().showAlert(message, 'info');
         });
     } else {
-      this.proyectoService()
-        .create(this.proyecto)
+      this.asuntoService()
+        .create(this.asunto)
         .then(param => {
           this.isSaving = false;
           this.$router.go(-1);
-          const message = this.$t('crewApp.proyecto.created', { param: param.id });
+          const message = this.$t('crewApp.asunto.created', { param: param.id });
           this.alertService().showAlert(message, 'success');
         });
     }
   }
 
-  public retrieveProyecto(proyectoId): void {
-    this.proyectoService()
-      .find(proyectoId)
+  public retrieveAsunto(asuntoId): void {
+    this.asuntoService()
+      .find(asuntoId)
       .then(res => {
-        this.proyecto = res;
+        this.asunto = res;
       });
   }
 
@@ -103,12 +103,12 @@ export default class ProyectoUpdate extends mixins(JhiDataUtils) {
   }
 
   public clearInputImage(field, fieldContentType, idInput): void {
-    if (this.proyecto && field && fieldContentType) {
-      if (this.proyecto.hasOwnProperty(field)) {
-        this.proyecto[field] = null;
+    if (this.asunto && field && fieldContentType) {
+      if (this.asunto.hasOwnProperty(field)) {
+        this.asunto[field] = null;
       }
-      if (this.proyecto.hasOwnProperty(fieldContentType)) {
-        this.proyecto[fieldContentType] = null;
+      if (this.asunto.hasOwnProperty(fieldContentType)) {
+        this.asunto[fieldContentType] = null;
       }
       if (idInput) {
         (<any>this).$refs[idInput] = null;

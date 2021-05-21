@@ -4,9 +4,9 @@ import sinon, { SinonStubbedInstance } from 'sinon';
 
 import AlertService from '@/shared/alert/alert.service';
 import * as config from '@/shared/config/config';
-import ProyectoComponent from '@/entities/proyecto/proyecto.vue';
-import ProyectoClass from '@/entities/proyecto/proyecto.component';
-import ProyectoService from '@/entities/proyecto/proyecto.service';
+import AsuntoComponent from '@/entities/asunto/asunto.vue';
+import AsuntoClass from '@/entities/asunto/asunto.component';
+import AsuntoService from '@/entities/asunto/asunto.service';
 
 const localVue = createLocalVue();
 
@@ -22,31 +22,31 @@ localVue.component('b-button', {});
 localVue.component('router-link', {});
 
 const bModalStub = {
-  render: () => {},
+  render: () => { },
   methods: {
-    hide: () => {},
-    show: () => {},
+    hide: () => { },
+    show: () => { },
   },
 };
 
 describe('Component Tests', () => {
-  describe('Proyecto Management Component', () => {
-    let wrapper: Wrapper<ProyectoClass>;
-    let comp: ProyectoClass;
-    let proyectoServiceStub: SinonStubbedInstance<ProyectoService>;
+  describe('Asunto Management Component', () => {
+    let wrapper: Wrapper<AsuntoClass>;
+    let comp: AsuntoClass;
+    let asuntoServiceStub: SinonStubbedInstance<AsuntoService>;
 
     beforeEach(() => {
-      proyectoServiceStub = sinon.createStubInstance<ProyectoService>(ProyectoService);
-      proyectoServiceStub.retrieve.resolves({ headers: {} });
+      asuntoServiceStub = sinon.createStubInstance<AsuntoService>(AsuntoService);
+      asuntoServiceStub.retrieve.resolves({ headers: {} });
 
-      wrapper = shallowMount<ProyectoClass>(ProyectoComponent, {
+      wrapper = shallowMount<AsuntoClass>(AsuntoComponent, {
         store,
         i18n,
         localVue,
         stubs: { jhiItemCount: true, bPagination: true, bModal: bModalStub as any },
         provide: {
           alertService: () => new AlertService(store),
-          proyectoService: () => proyectoServiceStub,
+          asuntoService: () => asuntoServiceStub,
         },
       });
       comp = wrapper.vm;
@@ -54,20 +54,20 @@ describe('Component Tests', () => {
 
     it('Should call load all on init', async () => {
       // GIVEN
-      proyectoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
+      asuntoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
 
       // WHEN
-      comp.retrieveAllProyectos();
+      comp.retrieveAllAsuntos();
       await comp.$nextTick();
 
       // THEN
-      expect(proyectoServiceStub.retrieve.called).toBeTruthy();
-      expect(comp.proyectos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
+      expect(asuntoServiceStub.retrieve.called).toBeTruthy();
+      expect(comp.asuntos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
     });
 
     it('should load a page', async () => {
       // GIVEN
-      proyectoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
+      asuntoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
       comp.previousPage = 1;
 
       // WHEN
@@ -75,14 +75,14 @@ describe('Component Tests', () => {
       await comp.$nextTick();
 
       // THEN
-      expect(proyectoServiceStub.retrieve.called).toBeTruthy();
-      expect(comp.proyectos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
+      expect(asuntoServiceStub.retrieve.called).toBeTruthy();
+      expect(comp.asuntos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
     });
 
     it('should re-initialize the page', async () => {
       // GIVEN
-      proyectoServiceStub.retrieve.reset();
-      proyectoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
+      asuntoServiceStub.retrieve.reset();
+      asuntoServiceStub.retrieve.resolves({ headers: {}, data: [{ id: '123' }] });
 
       // WHEN
       comp.loadPage(2);
@@ -91,9 +91,9 @@ describe('Component Tests', () => {
       await comp.$nextTick();
 
       // THEN
-      expect(proyectoServiceStub.retrieve.callCount).toEqual(2);
+      expect(asuntoServiceStub.retrieve.callCount).toEqual(2);
       expect(comp.page).toEqual(1);
-      expect(comp.proyectos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
+      expect(comp.asuntos[0]).toEqual(jasmine.objectContaining({ id: '123' }));
     });
 
     it('should calculate the sort attribute for an id', () => {
@@ -116,16 +116,16 @@ describe('Component Tests', () => {
     });
     it('Should call delete service on confirmDelete', async () => {
       // GIVEN
-      proyectoServiceStub.delete.resolves({});
+      asuntoServiceStub.delete.resolves({});
 
       // WHEN
       comp.prepareRemove({ id: '123' });
-      comp.removeProyecto();
+      comp.removeAsunto();
       await comp.$nextTick();
 
       // THEN
-      expect(proyectoServiceStub.delete.called).toBeTruthy();
-      expect(proyectoServiceStub.retrieve.callCount).toEqual(2);
+      expect(asuntoServiceStub.delete.called).toBeTruthy();
+      expect(asuntoServiceStub.retrieve.callCount).toEqual(2);
     });
   });
 });

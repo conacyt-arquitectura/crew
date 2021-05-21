@@ -1,0 +1,27 @@
+{
+  "crewApp": {
+    "asunto": {
+      "home": {
+        "title": "Asuntos",
+        "createLabel": "Create a new Asunto",
+        "createOrEditLabel": "Create or edit a Asunto",
+        "notFound": "No Asuntos found"
+      },
+      "created": "A new Asunto is created with identifier {{ param }}",
+      "updated": "A Asunto is updated with identifier {{ param }}",
+      "deleted": "A Asunto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Asunto {{ id }}?"
+      },
+      "detail": {
+        "title": "Asunto"
+      },
+      "nombre": "Nombre",
+      "clave": "Clave",
+      "logo": "Logo",
+      "celula": "Celula",
+      "plataforma": "Plataforma",
+      "area": "Area"
+    }
+  }
+}

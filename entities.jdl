@@ -1,4 +1,4 @@
-entity Proyecto {
+entity Asunto {
  nombre String,
  clave String,
  logo ImageBlob
@@ -66,9 +66,9 @@ entity Plataforma {
 }
 
 relationship ManyToOne {
-	Proyecto{celula} to Celula,
-    Proyecto{plataforma} to Plataforma,
-    Proyecto{area} to Area,
+	Asunto{celula} to Celula,
+    Asunto{plataforma} to Plataforma,
+    Asunto{area} to Area,
     Persona{avatar} to Avatar,
     Persona{area} to Area,
     Persona{badges} to Badge,
@@ -79,7 +79,7 @@ relationship ManyToOne {
 
 
 // Set pagination options
-paginate Persona, Proyecto, Badge with infinite-scroll
+paginate Persona, Asunto, Badge with infinite-scroll
 paginate Rol, Celula, Plataforma, Area, Participacion with pagination
 
 // Use Data Transfer Objects (DTO)

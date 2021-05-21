@@ -29,9 +29,9 @@
             <font-awesome-icon icon="th-list" />
             <span v-text="$t('global.menu.entities.main')">Entities</span>
           </span>
-          <b-dropdown-item to="/proyecto">
-            <font-awesome-icon icon="route" />
-            <span v-text="$t('global.menu.entities.proyecto')">Proyecto</span>
+          <b-dropdown-item to="/asunto">
+            <font-awesome-icon icon="folder-open" />
+            <span v-text="$t('global.menu.entities.asunto')">Asunto</span>
           </b-dropdown-item>
           <b-dropdown-item to="/persona">
             <font-awesome-icon icon="address-book" />

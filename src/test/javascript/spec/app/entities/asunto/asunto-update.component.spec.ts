@@ -5,9 +5,9 @@ import Router from 'vue-router';
 
 import AlertService from '@/shared/alert/alert.service';
 import * as config from '@/shared/config/config';
-import ProyectoUpdateComponent from '@/entities/proyecto/proyecto-update.vue';
-import ProyectoClass from '@/entities/proyecto/proyecto-update.component';
-import ProyectoService from '@/entities/proyecto/proyecto.service';
+import AsuntoUpdateComponent from '@/entities/asunto/asunto-update.vue';
+import AsuntoClass from '@/entities/asunto/asunto-update.component';
+import AsuntoService from '@/entities/asunto/asunto.service';
 
 import CelulaService from '@/entities/celula/celula.service';
 
@@ -25,22 +25,22 @@ localVue.use(Router);
 localVue.component('font-awesome-icon', {});
 
 describe('Component Tests', () => {
-  describe('Proyecto Management Update Component', () => {
-    let wrapper: Wrapper<ProyectoClass>;
-    let comp: ProyectoClass;
-    let proyectoServiceStub: SinonStubbedInstance<ProyectoService>;
+  describe('Asunto Management Update Component', () => {
+    let wrapper: Wrapper<AsuntoClass>;
+    let comp: AsuntoClass;
+    let asuntoServiceStub: SinonStubbedInstance<AsuntoService>;
 
     beforeEach(() => {
-      proyectoServiceStub = sinon.createStubInstance<ProyectoService>(ProyectoService);
+      asuntoServiceStub = sinon.createStubInstance<AsuntoService>(AsuntoService);
 
-      wrapper = shallowMount<ProyectoClass>(ProyectoUpdateComponent, {
+      wrapper = shallowMount<AsuntoClass>(AsuntoUpdateComponent, {
         store,
         i18n,
         localVue,
         router,
         provide: {
           alertService: () => new AlertService(store),
-          proyectoService: () => proyectoServiceStub,
+          asuntoService: () => asuntoServiceStub,
 
           celulaService: () => new CelulaService(),
 
@@ -56,30 +56,30 @@ describe('Component Tests', () => {
       it('Should call update service on save for existing entity', async () => {
         // GIVEN
         const entity = { id: '123' };
-        comp.proyecto = entity;
-        proyectoServiceStub.update.resolves(entity);
+        comp.asunto = entity;
+        asuntoServiceStub.update.resolves(entity);
 
         // WHEN
         comp.save();
         await comp.$nextTick();
 
         // THEN
-        expect(proyectoServiceStub.update.calledWith(entity)).toBeTruthy();
+        expect(asuntoServiceStub.update.calledWith(entity)).toBeTruthy();
         expect(comp.isSaving).toEqual(false);
       });
 
       it('Should call create service on save for new entity', async () => {
         // GIVEN
         const entity = {};
-        comp.proyecto = entity;
-        proyectoServiceStub.create.resolves(entity);
+        comp.asunto = entity;
+        asuntoServiceStub.create.resolves(entity);
 
         // WHEN
         comp.save();
         await comp.$nextTick();
 
         // THEN
-        expect(proyectoServiceStub.create.calledWith(entity)).toBeTruthy();
+        expect(asuntoServiceStub.create.calledWith(entity)).toBeTruthy();
         expect(comp.isSaving).toEqual(false);
       });
     });

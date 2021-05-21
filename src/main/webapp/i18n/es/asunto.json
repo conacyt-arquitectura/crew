@@ -1,0 +1,27 @@
+{
+  "crewApp": {
+    "asunto": {
+      "home": {
+        "title": "Asuntos",
+        "createLabel": "Crear nuevo Asunto",
+        "createOrEditLabel": "Crear o editar Asunto",
+        "notFound": "Ningún Asuntos encontrado"
+      },
+      "created": "Un nuevo Asunto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Asunto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Asunto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Asunto {{ id }}?"
+      },
+      "detail": {
+        "title": "Asunto"
+      },
+      "nombre": "Nombre",
+      "clave": "Clave",
+      "logo": "Logo",
+      "celula": "Celula",
+      "plataforma": "Plataforma",
+      "area": "Area"
+    }
+  }
+}
