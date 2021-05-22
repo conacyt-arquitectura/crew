@@ -30,7 +30,7 @@
             <span v-text="$t('global.menu.entities.main')">Entities</span>
           </span>
           <b-dropdown-item to="/asunto">
-            <font-awesome-icon icon="folder-open" />
+            <font-awesome-icon icon="route" />
             <span v-text="$t('global.menu.entities.asunto')">Asunto</span>
           </b-dropdown-item>
           <b-dropdown-item to="/persona">

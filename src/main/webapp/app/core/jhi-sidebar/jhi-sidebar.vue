@@ -18,7 +18,8 @@
     >
       <nav class="mb-3">
         <b-nav vertical>
-          <b-nav-item active @click="hide">Active</b-nav-item>
+          asdasd
+          <b-nav-item active>Active</b-nav-item>
           <b-nav-item to="/asunto"
             ><font-awesome-icon icon="route" /> <span v-text="$t('global.menu.entities.asunto')">Asunto</span></b-nav-item
           >

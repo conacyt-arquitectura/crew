@@ -42,7 +42,8 @@ import {
   BAspect,
   BCarousel,
   BCarouselSlide,
-  ModalPlugin
+  ModalPlugin,
+  BNav
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -64,6 +65,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-group', BFormGroup);
   vue.component('b-form-checkbox', BFormCheckbox);
   vue.component('b-collapse', BCollapse);
+  vue.component('b-nav', BNav);
   vue.component('b-nav-item', BNavItem);
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
   vue.component('b-modal', BModal);
