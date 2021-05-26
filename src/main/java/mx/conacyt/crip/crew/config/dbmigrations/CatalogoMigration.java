@@ -2,14 +2,10 @@ package mx.conacyt.crip.crew.config.dbmigrations;
 
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
-import java.time.Instant;
 import mx.conacyt.crip.crew.domain.Area;
-import mx.conacyt.crip.crew.domain.Authority;
 import mx.conacyt.crip.crew.domain.Celula;
 import mx.conacyt.crip.crew.domain.Plataforma;
 import mx.conacyt.crip.crew.domain.Rol;
-import mx.conacyt.crip.crew.domain.User;
-import mx.conacyt.crip.crew.security.AuthoritiesConstants;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**

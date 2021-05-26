@@ -1,5 +1,6 @@
 package mx.conacyt.crip.crew.service;
 
+import java.util.List;
 import java.util.Optional;
 import mx.conacyt.crip.crew.service.dto.AsuntoDTO;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,9 @@ public interface AsuntoService {
      * @return the list of entities.
      */
     Page<AsuntoDTO> findAll(Pageable pageable);
+
+    List<AsuntoDTO> findByQuery(String name);
+    List<AsuntoDTO> findAll();
 
     /**
      * Get the "id" Asunto.

@@ -7,6 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import mx.conacyt.crip.crew.domain.Asunto;
 import mx.conacyt.crip.crew.service.AsuntoService;
 import mx.conacyt.crip.crew.service.dto.AsuntoDTO;
 import mx.conacyt.crip.crew.web.rest.errors.BadRequestAlertException;
@@ -94,6 +95,25 @@ public class AsuntoResource {
         Page<AsuntoDTO> page = AsuntoService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /Asuntos} : get all the Asuntos.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of Asuntos in body.
+     */
+    @GetMapping("/convocatorias")
+    public ResponseEntity<List<AsuntoDTO>> getAllConvocatorias(@RequestParam(required = false) String nombre) {
+        log.debug("REST request to get a page of Asuntos");
+
+        List<AsuntoDTO> convocatorias = null;
+        if (nombre == null) {
+            convocatorias = AsuntoService.findAll();
+        } else {
+            convocatorias = AsuntoService.findByQuery(nombre);
+        }
+        return ResponseEntity.ok().body(convocatorias);
     }
 
     /**

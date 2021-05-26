@@ -1,6 +1,8 @@
 package mx.conacyt.crip.crew.service.impl;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import mx.conacyt.crip.crew.domain.Asunto;
 import mx.conacyt.crip.crew.repository.AsuntoRepository;
 import mx.conacyt.crip.crew.service.AsuntoService;
@@ -52,5 +54,15 @@ public class AsuntoServiceImpl implements AsuntoService {
     public void delete(String id) {
         log.debug("Request to delete Asunto : {}", id);
         AsuntoRepository.deleteById(id);
+    }
+
+    @Override
+    public List<AsuntoDTO> findByQuery(String nombre) {
+        return AsuntoRepository.findByQuery(".*" + nombre + ".*").stream().map(AsuntoMapper::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<AsuntoDTO> findAll() {
+        return AsuntoRepository.findAll().stream().map(AsuntoMapper::toDto).collect(Collectors.toList());
     }
 }
