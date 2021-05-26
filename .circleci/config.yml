@@ -62,20 +62,6 @@ workflows:
                 - master
           requires:
             - build-and-test
-      - build-docker-dev:
-          filters:
-            branches:
-              only:
-                - develop
-          requires:
-            - build-and-test
-      - build-docker-master:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build-and-test
       - redeploy-dev:
           filters:
             branches:
