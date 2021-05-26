@@ -16,6 +16,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
     steps:
+      - checkout
       - run:
           name: DockerBuildDev
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest-develop
@@ -23,6 +24,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
     steps:
+      - checkout
       - run:
           name: DockerBuildMaster
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest
@@ -36,9 +38,13 @@ workflows:
             branches:
               only:
                 - develop
+          requires:
+            - build-and-test
       - build-docker-master:
           filters:
             branches:
               only:
                 - master
+          requires:
+            - build-and-test
 
