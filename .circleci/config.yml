@@ -34,14 +34,14 @@ jobs:
     steps:
       - run:
           name: RedeployDev
-          command: curl $DEV_WEBHOOK
+          command: curl --request POST --url $DEV_WEBHOOK
   redeploy-master:
     docker:
       - image: cimg/openjdk:11.0
     steps:
       - run:
           name: RedeployMaster
-          command: curl $MASTER_WEBHOOK
+          command: curl --request POST --url $MASTER_WEBHOOK
 
 
 workflows:
