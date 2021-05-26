@@ -11,8 +11,8 @@ import AreaService from './area.service';
 @Component({
   mixins: [Vue2Filters.mixin],
   components: {
-    OrgChart
-  }
+    OrgChart,
+  },
 })
 export default class Area extends mixins(AlertMixin) {
   @Inject('areaService') private areaService: () => AreaService;
@@ -55,10 +55,8 @@ export default class Area extends mixins(AlertMixin) {
           this.totalItems = Number(res.headers['x-total-count']);
           this.queryCount = this.totalItems;
           this.areas.forEach(area => {
-            this.nodes.push(
-              { id: area.id, pid: area.areaId, name: area.responsable }
-            )
-          })
+            this.nodes.push({ id: area.id, pid: area.areaId, name: area.responsable });
+          });
           this.isFetching = false;
         },
         err => {

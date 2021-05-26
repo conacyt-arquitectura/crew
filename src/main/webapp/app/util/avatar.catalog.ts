@@ -1,4 +1,3 @@
-
 export class Catalog {
   constructor(
     public accesoriesTypes?: any,
@@ -14,19 +13,33 @@ export class Catalog {
     public skinColor?: any,
     public topType?: any,
     public topColor?: any
-  ) { }
+  ) {
+    this.accesoriesTypes = this.accesoriesTypes || accesoriesTypesDefault;
+    this.clotheType = this.clotheType || clotheTypeDefault;
+    this.clotheColor = this.clotheColor || clotheColorDefault;
+    this.eyebrowType = this.eyebrowType || eyebrowTypeDefault;
+    this.eyeType = this.eyeType || eyeTypeDefault;
+    this.facialHairColor = this.facialHairColor || facialHairColorDefault;
+    this.facialHairType = this.facialHairType || facialHairTypeDefault;
+    this.graphicType = this.graphicType || graphicTypeDefault;
+    this.hairColor = this.hairColor || hairColorDefault;
+    this.mouthType = this.mouthType || mouthTypeDefault;
+    this.skinColor = this.skinColor || skinColorDefault;
+    this.topType = this.topType || topTypeDefault;
+    this.topColor = this.topColor || topColorDefault;
+  }
 }
-let accesoriesTypes = [
+const accesoriesTypesDefault = [
   { text: 'Sin lentes', value: 'Blank' },
   { text: 'Diva', value: 'Kurt' },
   { text: 'Blancos', value: 'Prescription01' },
   { text: 'Programador', value: 'Prescription02' },
   { text: 'Normales', value: 'Round' },
   { text: 'Solares ligeros', value: 'Sunglasses' },
-  { text: 'Solares', value: 'Wayfarers' }
-]
+  { text: 'Solares', value: 'Wayfarers' },
+];
 
-let clotheType = [
+const clotheTypeDefault = [
   { text: 'Camisa Blazer', value: 'BlazerShirt' },
   { text: 'Suéter Blazer', value: 'BlazerSweater' },
   { text: 'Suéter con cuello', value: 'CollarSweater' },
@@ -35,10 +48,10 @@ let clotheType = [
   { text: 'Overol', value: 'Overall' },
   { text: 'Cuello redondo', value: 'ShirtCrewNeck' },
   { text: 'Cuello redondo grande', value: 'ShirtScoopNeck' },
-  { text: 'Cuello en V', value: 'ShirtVNeck' }
-]
+  { text: 'Cuello en V', value: 'ShirtVNeck' },
+];
 
-let clotheColor = [
+const clotheColorDefault = [
   { text: 'black', value: 'Black' },
   { text: 'blue-claro', value: 'Blue01' },
   { text: 'blue-pastel', value: 'PastelBlue' },
@@ -53,10 +66,10 @@ let clotheColor = [
   { text: 'yellow-pastel', value: 'PastelYellow' },
   { text: 'pink', value: 'Pink' },
   { text: 'red', value: 'Red' },
-  { text: 'white', value: 'White' }
-]
+  { text: 'white', value: 'White' },
+];
 
-let eyebrowType = [
+const eyebrowTypeDefault = [
   { text: 'Molesto', value: 'Angry' },
   { text: 'Muy molesto', value: 'AngryNatural' },
   { text: 'Normal', value: 'Default' },
@@ -68,10 +81,10 @@ let eyebrowType = [
   { text: 'Desconcertado', value: 'SadConcernedNatural' },
   { text: 'Una ceja', value: 'UnibrowNatural' },
   { text: 'Ceja levantada', value: 'UpDown' },
-  { text: 'Ceja levantada natural', value: 'UpDownNatural' }
-]
+  { text: 'Ceja levantada natural', value: 'UpDownNatural' },
+];
 
-let eyeType = [
+const eyeTypeDefault = [
   { text: 'Cerrados', value: 'Close' },
   { text: 'Llorando', value: 'Cry' },
   { text: 'Normal', value: 'Default' },
@@ -83,10 +96,10 @@ let eyeType = [
   { text: 'Estrabismo', value: 'Squint' },
   { text: 'Sorprendido', value: 'Surprised' },
   { text: 'Guiñando', value: 'Wink' },
-  { text: 'Guiño loco', value: 'WinkWacky' }
-]
+  { text: 'Guiño loco', value: 'WinkWacky' },
+];
 
-let facialHairColor = [
+const facialHairColorDefault = [
   { text: 'Castaño', value: 'Auburn' },
   { text: 'Negro', value: 'Black' },
   { text: 'Rubio', value: 'Blonde' },
@@ -96,19 +109,19 @@ let facialHairColor = [
   { text: 'Rosa pastel', value: 'PastelPink' },
   { text: 'Plateado', value: 'Platinum' },
   { text: 'Rojo', value: 'Red' },
-  { text: 'Plateado', value: 'SilverGray' }
-]
+  { text: 'Plateado', value: 'SilverGray' },
+];
 
-let facialHairType = [
+const facialHairTypeDefault = [
   { text: 'Sin barba', value: 'Blank' },
   { text: 'Media', value: 'BeardMedium' },
   { text: 'Ligera', value: 'BeardLight' },
   { text: 'Abundante', value: 'BeardMagestic' },
   { text: 'Fantasía', value: 'MoustacheFancy' },
-  { text: 'Magnum', value: 'MoustacheMagnum' }
-]
+  { text: 'Magnum', value: 'MoustacheMagnum' },
+];
 
-let graphicType = [
+const graphicTypeDefault = [
   { text: 'Batman', value: 'Bat' },
   { text: 'Cumbia', value: 'Cumbia' },
   { text: 'Venado', value: 'Deer' },
@@ -119,10 +132,10 @@ let graphicType = [
   { text: 'Selena', value: 'Selena' },
   { text: 'Oso', value: 'Bear' },
   { text: 'Calabera rellena', value: 'SkullOutline' },
-  { text: 'Calabera', value: 'Skull' }
-]
+  { text: 'Calabera', value: 'Skull' },
+];
 
-let hairColor = [
+const hairColorDefault = [
   { text: 'auburn', value: 'Auburn' },
   { text: 'black', value: 'Black' },
   { text: 'blonde', value: 'Blonde' },
@@ -132,10 +145,10 @@ let hairColor = [
   { text: 'pink-pastel', value: 'PastelPink' },
   { text: 'platinum', value: 'Platinum' },
   { text: 'red', value: 'Red' },
-  { text: 'gray-claro', value: 'SilverGray' }
-]
+  { text: 'gray-claro', value: 'SilverGray' },
+];
 
-let mouthType = [
+const mouthTypeDefault = [
   { text: 'Preocupado', value: 'Concerned' },
   { text: 'Normal', value: 'Default' },
   { text: 'Incredulo', value: 'Disbelief' },
@@ -147,20 +160,20 @@ let mouthType = [
   { text: 'Sonriendo', value: 'Smile' },
   { text: 'Monstrando la lengua', value: 'Tongue' },
   { text: 'Confiado', value: 'Twinkle' },
-  { text: 'Vomitando', value: 'Vomit' }
-]
+  { text: 'Vomitando', value: 'Vomit' },
+];
 
-let skinColor = [
+const skinColorDefault = [
   { text: 'skin-tanned', value: 'Tanned' },
   { text: 'skin-yellow', value: 'Yellow' },
   { text: 'skin-light', value: 'Pale' },
   { text: 'skin-pale', value: 'Light' },
   { text: 'skin-brown', value: 'Brown' },
   { text: 'skin-dark-brown', value: 'DarkBrown' },
-  { text: 'skin-dark-black', value: 'Black' }
-]
+  { text: 'skin-dark-black', value: 'Black' },
+];
 
-let topType = [
+const topTypeDefault = [
   { text: 'Pelón', value: 'NoHair', type: 'pelon' },
   { text: 'Parche en ojo', value: 'Eyepatch', type: 'pelon' },
   { text: 'Sombrero', value: 'Hat', type: 'hat' },
@@ -195,10 +208,10 @@ let topType = [
   { text: 'Corto con ondas', value: 'ShortHairShortWaved', type: 'hair' },
   { text: 'Cabello a los lados', value: 'ShortHairSides', type: 'hair' },
   { text: 'Cesar', value: 'ShortHairTheCaesar', type: 'hair' },
-  { text: 'Cesar levantado', value: 'ShortHairTheCaesarSidePart', type: 'hair' }
-]
+  { text: 'Cesar levantado', value: 'ShortHairTheCaesarSidePart', type: 'hair' },
+];
 
-let topColor = [
+const topColorDefault = [
   { text: 'dark', value: 'Black' },
   { text: 'blue-pastel', value: 'Blue01' },
   { text: 'blue-claro', value: 'Blue02' },
@@ -213,21 +226,21 @@ let topColor = [
   { text: 'yellow-pastel', value: 'PastelYellow' },
   { text: 'pink', value: 'Pink' },
   { text: 'red', value: 'Red' },
-  { text: 'gray', value: 'White' }
-]
+  { text: 'gray', value: 'White' },
+];
 
-export let AvatarCatalog = new Catalog(
-  accesoriesTypes,
-  clotheType,
-  clotheColor,
-  eyebrowType,
-  eyeType,
-  facialHairColor,
-  facialHairType,
-  graphicType,
-  hairColor,
-  mouthType,
-  skinColor,
-  topType,
-  topColor
+export const AvatarCatalog = new Catalog(
+  accesoriesTypesDefault,
+  clotheTypeDefault,
+  clotheColorDefault,
+  eyebrowTypeDefault,
+  eyeTypeDefault,
+  facialHairColorDefault,
+  facialHairTypeDefault,
+  graphicTypeDefault,
+  hairColorDefault,
+  mouthTypeDefault,
+  skinColorDefault,
+  topTypeDefault,
+  topColorDefault
 );
