@@ -17,28 +17,28 @@ jobs:
       - image: cimg/openjdk:11.0
     steps:
       - run:
-          name: DockerBuild
+          name: DockerBuildDev
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest-develop
-    filters:
-      branches:
-        only:
-          - develop
   build-docker-master:
     docker:
       - image: cimg/openjdk:11.0
     steps:
       - run:
-          name: DockerBuild
+          name: DockerBuildMaster
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest
-    filters:
-      branches:
-        only:
-          - master
-
 
 workflows:
   simple-ci:
     jobs:
       - build-and-test
-      - build-docker-dev
-      - build-docker-master
+      - build-docker-dev:
+          filters:
+            branches:
+              only:
+                - develop
+      - build-docker-master:
+          filters:
+            branches:
+              only:
+                - master
+
