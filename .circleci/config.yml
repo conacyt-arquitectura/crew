@@ -21,13 +21,10 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn verify
-      - setup_remote_docker:
-          version: 19.03.13
-          docker_layer_caching: true
+          command: mvn test
       - run:
           name: DockerBuild
-          command: mvn -Pprod verify jib:build -Djib.to.tags=latest-develop
+          command: mvn -Pprod package jib:build -DskipTests
 
 workflows:
   # Below is the definition of your workflow.
