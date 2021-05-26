@@ -512,6 +512,13 @@
                         <to>
                             <image>crew:latest</image>
                         </to>
+                        <to>
+                            <image>registry.crip.conacyt.mx/conacyt-arquitectura/crew:latest</image>
+                            <auth>
+                                <username>${env.REGISTRY_USER}</username>
+                                <password>${env.REGISTRY_PASS}</password>
+                            </auth>
+                        </to>
                         <container>
                             <entrypoint>
                                 <shell>bash</shell>
