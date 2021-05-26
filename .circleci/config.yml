@@ -30,7 +30,7 @@ jobs:
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest
   pba:
     docker:
-      - image: cimg/buildpack-deps:20.04-curl
+      - image: cimg/openjdk:11.0
     steps:
       - run:
           name: Redeploy
