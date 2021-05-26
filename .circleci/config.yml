@@ -28,13 +28,20 @@ jobs:
       - run:
           name: DockerBuildMaster
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest
-  pba:
+  redeploy-dev:
     docker:
       - image: cimg/openjdk:11.0
     steps:
       - run:
-          name: Redeploy
-          command: curl http://yahoo.com
+          name: RedeployDev
+          command: curl $DEV_WEBHOOK
+  redeploy-master:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - run:
+          name: RedeployMaster
+          command: curl $MASTER_WEBHOOK
 
 
 workflows:
@@ -69,5 +76,19 @@ workflows:
                 - master
           requires:
             - build-and-test
-      - pba
+      - redeploy-dev:
+          filters:
+            branches:
+              only:
+                - develop
+          requires:
+            - build-docker-dev
+      - redeploy-master:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-docker-master
+
 
