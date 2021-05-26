@@ -28,6 +28,14 @@ jobs:
       - run:
           name: DockerBuildMaster
           command: mvn clean package -Pprod jib:build -DskipTests -Djib.to.tags=latest
+  pba:
+    docker:
+      - image: cimg/buildpack-deps:20.04-curl
+    steps:
+      - run:
+          name: Redeploy
+          command: curl http://yahoo.com
+
 
 workflows:
   simple-ci:
@@ -47,4 +55,19 @@ workflows:
                 - master
           requires:
             - build-and-test
+      - build-docker-dev:
+          filters:
+            branches:
+              only:
+                - develop
+          requires:
+            - build-and-test
+      - build-docker-master:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-and-test
+      - pba
 
