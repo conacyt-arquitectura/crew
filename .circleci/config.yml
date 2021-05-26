@@ -24,7 +24,7 @@ jobs:
           command: mvn test
       - run:
           name: DockerBuild
-          command: mvn -Pprod package jib:build -DskipTests
+          command: mvn clean package -Pprod jib:build -DskipTests
 
 workflows:
   # Below is the definition of your workflow.
