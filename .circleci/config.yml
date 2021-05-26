@@ -10,7 +10,7 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: maven:3.6-jdk-11
+      - image: cimg/openjdk:11.0
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -22,6 +22,12 @@ jobs:
       - run:
           name: Test
           command: mvn verify
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - run:
+          name: DockerBuild
+          command: mvn -Pprod verify jib:build -Djib.to.tags=latest-develop
 
 workflows:
   # Below is the definition of your workflow.
